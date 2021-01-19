@@ -1,0 +1,235 @@
+
+@{
+    ViewData["Title"] = "Успеваемость";
+}
+
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title m-b-20">
+                                    <h5 class="display-4 animated fadeInDown">Успеваемость</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>График успеваемости</h5>
+                                        <div class="card-header-right">
+                                            <div class="btn-group card-option">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="feather icon-more-horizontal"></i>
+                                                </button>
+                                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> На весь экран</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> Свернуть</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> Обновить</a></li>
+                                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> Удалить</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div id="line-chart1" class="ChartShadow" style="height:350px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Показатели успеваемости</h5>
+                                        
+                                        <div class="card-header-right">
+                                            <div class="btn-group card-option">
+                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="feather icon-more-horizontal"></i>
+                                                </button>
+                                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> На весь экран</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> Свернуть</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> Обновить</a></li>
+                                                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> Удалить</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="float-left d-flex  align-items-center m-r-10">
+                                                <i class="fas fa-circle f-10 m-r-5 text-c-red"></i>Пропуск
+                                            </span>
+                                        <span class="float-left d-flex  align-items-center m-r-10">
+                                                <i class="fas fa-circle f-10 m-r-5 text-c-yellow"></i>Опоздание
+                                            </span>
+
+                                            <span class="float-right d-flex  align-items-center m-r-10">
+                                                <i class="fas fa-circle f-10 m-r-5 text-c-green"></i>Домашнее задание
+                                            </span>
+                                            <span class="float-right d-flex  align-items-center m-r-10">
+                                                <i class="fas fa-circle f-10 m-r-5 text-c-purple"></i>Лабораторная работа
+                                            </span>
+                                            <span class="float-right d-flex  align-items-center m-r-10">
+                                                <i class="fas fa-circle f-10 m-r-5 text-c-blue"></i>Работа на занятии
+                                            </span>
+                                            <span class="float-right d-flex  align-items-center m-r-10">
+                                                Оценки:
+                                            </span>
+                                    </div>
+                                    </div>
+
+                                            <div class="col-md-12 m-t-20 m-l-10">
+                                                <p>Вы можете посмотеть успеваемость по определенной дисциплине. Для этого <code>выберите дисциплину</code> из списка</p>
+                                                <select class="js-example-basic-single form-control">
+                                                        <option value="AL">Все предметы</option>
+                                                        <option value="WY">Теория государства и права</option>
+                                                        <option value="WY">Экономическая теория</option>
+                                                        <option value="WY">Религиеведение</option>
+                                                </select>
+                                            </div>
+                                    
+                                    <div class="card-block">
+                                        <div class="row">
+                                            @{int days = 42;}
+                                            @for(int i = 0; i<days; i++)
+                                            {
+                                                Random r_alert = new Random();
+                                                int al = r_alert.Next(1, 8);
+                                                string alert_class = "";
+                                                string status = "";
+
+                                                switch (al)
+                                                {
+                                                    case 1:
+                                                        alert_class = "card alert alert-primary";
+                                                        status = "Вы были на паре";
+                                                        break;
+                                                    case 2:
+                                                        alert_class = "card alert alert-primary";
+                                                        status = "Вы были на паре";
+                                                        break;
+                                                    case 3:
+                                                        alert_class = "card alert alert-primary";
+                                                        status = "Вы были на паре";
+                                                        break;
+                                                    case 4:
+                                                        alert_class = "card alert alert-warning";
+                                                        status = "опоздание";
+                                                        break;
+                                                    case 5:
+                                                        alert_class = "card alert alert-danger";
+                                                        status = "пропуск";
+                                                        break;
+                                                    case 6:
+                                                        alert_class = "card alert alert-primary";
+                                                        status = "Вы были на паре";
+                                                        break;
+                                                    case 7:
+                                                        alert_class = "card alert alert-primary";
+                                                        status = "Вы были на паре";
+                                                        break;
+                                                    default:
+
+                                                        break;
+                                                }
+
+                                                <div class="col-md-2">
+                                                    <div class="@alert_class" role="alert">
+                                                        <div class="text-center">
+                                                            @* <img class="img-female" src="~/assets/images/user/user-1.png" alt="visitor-user"> *@
+                                                            <small class="m-0">10.10.2020<a href="#" class="text-muted" title="Здесь можно указать дополнительную информацию по дисциплине" data-toggle="tooltip"><i   class="feather icon-info float-right"></i></a></small>
+                                                            <h3 class="m-t-10">@(i + 1)</h3>
+                                                            <div class="m-b-10">
+                                                                @if(status == "пропуск")
+                                                                {
+                                                                    <span class="badge badge-pill badge-danger">пропуск</span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="badge badge-pill badge-primary">@r_alert.Next(3, 6)</span>
+                                                                    <span class="badge badge-pill badge-success">@r_alert.Next(3, 6)</span>
+                                                                }
+                                                            </div>
+                                                            <small class="">@status</small>
+                                                            
+                                                            @* <img class="img-men" src="~/assets/images/user/user-2.png" alt="visitor-user"> *@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+@section Styles{
+<!-- select2 css -->
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+    <!-- multi-select css -->
+    <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
+}
+
+@section Scripts{
+
+    <!-- select2 Js -->
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- multi-select Js -->
+    <script src="~/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+    <script src="~/assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- form-select-custom Js -->
+    <script src="~/assets/js/pages/form-select-custom.js"></script>
+
+
+    <!-- amchart js -->
+    <script src="~/assets/plugins/amchart/js/amcharts.js"></script>
+    <script src="~/assets/plugins/amchart/js/gauge.js"></script>
+    <script src="~/assets/plugins/amchart/js/serial.js"></script>
+    <script src="~/assets/plugins/amchart/js/light.js"></script>
+    <script src="~/assets/plugins/amchart/js/pie.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/ammap.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/usaLow.js"></script>
+    <script src="~/assets/plugins/amchart/js/radar.js"></script>
+    <script src="~/assets/plugins/amchart/js/worldLow.js"></script>
+
+    <!-- Float Chart js -->
+    <script src="~/assets/plugins/flot/js/jquery.flot.js"></script>
+    <script src="~/assets/plugins/flot/js/jquery.flot.categories.js"></script>
+    <script src="~/assets/plugins/flot/js/curvedLines.js"></script>
+    <script src="~/assets/plugins/flot/js/jquery.flot.tooltip.min.js"></script>
+
+    <!-- WaterBall js -->
+    <script src="~/assets/plugins/waterball/js/createWaterBall-jquery.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/js/pages/chart.js"></script>
+}
+

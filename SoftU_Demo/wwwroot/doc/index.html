@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <title>Руководство пользователя SoftU</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/stroke.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/syntax-highlighter/styles/shCore.css" media="all">
+    <link rel="stylesheet" type="text/css" href="js/syntax-highlighter/styles/shThemeRDark.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+
+    <script>
+        var mybutton = document.getElementById("myBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+    </script>
+
+    <div id="wrapper">
+        <div class="container">
+            <section id="top" class="section docs-heading">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="big-title text-center">
+                            <h1>Руководство пользователя SoftU</h1>
+                            <p class="lead">Электронная система обучения, версия 1.0</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </section>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <nav class="docs-sidebar" data-spy="affix" data-offset-top="300" data-offset-bottom="200" role="navigation">
+                        <ul class="nav">
+                            <li><a href="#line1">Раздел руководства 1</a></li>
+                            <li><a href="#line2">Раздел руководства 2</a></li>
+                            <li><a href="#line3">Раздел руководства 3</a></li>
+                            <li><a href="#line4">Раздел руководства 4</a></li>
+                            <li><a href="#line5">Раздел руководства 5</a></li>
+                            <li><a href="#line6">Раздел руководства 6</a></li>
+                            <li><a href="#line7">Раздел руководства 7</a>
+                                <ul class="nav">
+                                    <li><a href="#line7_1">Раздел руководства 7.1</a></li>
+                                    <li><a href="#line7_2">Раздел руководства 7.2</a></li>
+                                    <li><a href="#line7_3">Раздел руководства 7.3</a></li>
+                                    <li><a href="#line7_4">Раздел руководства 7.4</a></li>
+                                    <li><a href="#line7_5">Раздел руководства 7.5</a></li>
+                                    <li><a href="#line7_6">Раздел руководства 7.6</a></li>
+                                    <li><a href="#line7_7">Раздел руководства 7.7</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav >
+                </div>
+                <div class="col-md-9">
+                    <section class="welcome">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                               <h2 class="dark-text">О системе<hr></h2>
+                                <div class="row">
+
+                                    <div class="col-md-12 full">
+                                        <div class="intro1">
+                                            <ul>
+                                                <li><strong>Название : </strong>SoftU</li>
+                                                <li><strong>Версия : </strong> v 1.0</li>
+                                                <li><strong>Разработчик  : </strong> <a href="#" target="_blank">Моя компания</a></li>
+                                                <li><strong>Поддержка : </strong> <a href="#" target="_blank">https://mycompany.com</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <hr>
+                                        <div>
+                                            <p>Здесь может быть какой-то текст
+                                                <strong>Здесь может быть какой-то текст!</strong>
+                                                <br> Здесь может быть какой-то текст.
+                                            </p>
+
+                                            <p>Здесь может быть какой-то текст <a href="#" target="_blank">Здесь может быть какая-то ссылка</a>, <a href="#" target="_blank">Здесь может быть какая-то ссылка</a> и <a href="#" target="_blank">Здесь может быть какая-то ссылка</a>. </p>
+
+                                            <h4>Подзаголовок раздела</h4>
+                                            <p>Здесь может быть какой-то текст.</p>
+                                            <ol>
+                                                <li>Здесь может быть какой-то текст</li>
+                                                <li>Здесь может быть какой-то текст</li>
+                                                <li>Здесь может быть какой-то <a href="#" target="_blank">текст</a>) </li>
+                                            </ol>
+                                            <div class="intro2 clearfix">
+                                                <p>Здесь может быть какой-то текст.
+                                                    <br> Здесь может быть какой-то текст.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="line1" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 1 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Здесь может быть текст для разделов Руководства пользователя</p>
+
+                                <h4>Подзаголовок раздела</h4>
+
+                                <pre class="brush: html; highlight: [2,4]">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                </div>
+                            </div></pre>
+
+                                <p>Здесь может быть какой-то текст</p>
+
+                                <pre class="brush: html">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                </div>
+                            </div>
+                         </pre>
+
+                                <p>Здесь может быть какой-то текст</p>
+
+                                <pre class="brush: html">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        ЗДЕСЬ МОЖЕТ БЫТЬ ПРИМЕР ИСХОДНОГО КОДА ДЛЯ РАЗДЕЛА, ПОСВЯЩЕННОГО АДМИНИСТРАТОРАМ ИЛИ РАЗРАБОТЧИКАМ
+                                    </div>
+                                </div>
+                            </div>
+                         </pre>
+                            </div>
+                            
+                        </div>
+                        
+
+                    </section>
+                    
+
+                    <section id="line2" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 2 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="intro2 clearfix">
+                            <p>Здесь может быть какой-то текст..
+                                <br> Здесь может быть какой-то текст. <a href="#">Здесь может быть какой-то текст.</a> </p>
+                        </div>
+
+                        <hr>
+
+                        <h4>Подзаголовок раздела</h4>
+
+                        <p>Здесь может быть текст для разделов Руководства пользователя</p>
+
+                        <a href="#" class="btn btn-primary">Здесь может быть какой-то текст</a> <a href="#" class="btn btn-info">Здесь может быть какой-то текст</a>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="media">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KCxWG2g22yo" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+                    
+
+                    <section id="line3" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 3 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <h4>Подзаголовок раздела</h4>
+
+                        <p>Здесь может быть текст для разделов Руководства пользователя</p>
+
+                        <a href="#" class="btn btn-primary">Текст на кнопке</a> <a href="#" class="btn btn-info">Текст на кнопке</a>
+
+                        <hr>
+
+                        <h4>Подзаголовок раздела</h4>
+
+                        <p>Здесь может быть текст для разделов Руководства пользователя</p>
+
+                        <a href="#" class="btn btn-primary">Текст на кнопке</a> <a href="#" class="btn btn-info">Текст на кнопке</a>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KCxWG2g22yo" frameborder="0" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="media">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/KCxWG2g22yo" frameborder="0" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </section>
+                    
+
+                    <section id="line4" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 4 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail">
+                                <h4>Подзаголовок раздела</h4>
+                                <p>Дополнительный текст</p>
+                            </div>
+                            
+
+                            <div class="col-md-4">
+                                <img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail">
+                                <h4>Подзаголовок раздела</h4>
+                                <p>Дополнительный текст</p>
+                            </div>
+                            
+
+                            <div class="col-md-4">
+                                <img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail">
+                                <h4>Подзаголовок раздела</h4>
+                                <p>Дополнительный текст</p>
+                            </div>
+                            
+
+                            <div class="col-md-12">
+                                <p>Здесь может быть текст для разделов Руководства пользователя . Дополнительный текст</p>
+
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary">Текст на кнопке</a> <a href="#" class="btn btn-info">Текст на кнопке</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </section>
+                    
+
+                    <section id="line5" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 5 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p>Здесь может быть текст для разделов Руководства пользователя . Дополнительный текст</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                                <h4 id="line5_1">Подзаголовок</h4>
+                                <ul>
+                                    <li><strong>Этап 1</strong>Дополнительный текст.</li>
+                                    <li><strong>Этап 2</strong>Дополнительный текст</li>
+                                    <li><strong>Этап 3</strong>Дополнительный текст</li>
+                                </ul>
+                            </div>
+                            
+
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                                <h4 id="line5_2">Подзаголовок</h4>
+                                <p>Дополнительный текст</p>
+                                <ul>
+                                    <li><strong>Этап 1</strong>Дополнительный текст.</li>
+                                    <li><strong>Этап 2</strong>Дополнительный текст</li>
+                                    <li><strong>Этап 3</strong>Дополнительный текст</li>
+                                </ul>
+                            </div>
+                            
+
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                                <h4 id="line5_3">Подзаголовок</h4>
+                                <p>Дополнительный текст</p>
+                                <ul>
+                                    <li><strong>Этап 1</strong>Дополнительный текст.</li>
+                                    <li><strong>Этап 2</strong>Дополнительный текст</li>
+                                    <li><strong>Этап 3</strong>Дополнительный текст</li>
+                                </ul>
+                            </div>
+                            
+
+                        </div>
+                        
+
+                    </section>
+                    
+
+                    <section id="line6" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 6 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p>Здесь может быть текст для разделов Руководства пользователя . Дополнительный текст</p>
+                            </div>
+
+                            <div class="col-md-6">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                                <h4>Подзаголовок раздела</h4>
+                                <ul>
+                                    <li><strong>Этап 1</strong>Дополнительный текст.</li>
+                                    <li><strong>Этап 2</strong>Дополнительный текст</li>
+                                    <li><strong>Этап 3</strong>Дополнительный текст</li>
+                                </ul>
+                            </div>
+                            
+
+                            <div class="col-md-6">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                                <h4>Подзаголовок раздела</h4>
+                                <p>Дополнительный текст</p>
+                                <ul>
+                                    <li><strong>Этап 1</strong>Дополнительный текст.</li>
+                                    <li><strong>Этап 2</strong>Дополнительный текст</li>
+                                    <li><strong>Этап 3</strong>Дополнительный текст</li>
+                                </ul>
+                            </div>
+                            
+
+                        </div>
+                        
+
+                    </section>
+                    
+
+                    <section id="line7" class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 class="dark-text">Раздел руководства 7 <hr></h2>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_1">Раздел руководства 7.1</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_2">Раздел руководства 7.2</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_3">Раздел руководства 7.3</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_4">Раздел руководства 7.4</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_5">Раздел руководства 7.5</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_6">Раздел руководства 7.6</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
+                            </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_7">Раздел руководства 7.7</h4>
+                                <p>Здесь может быть текст для разделов Руководства пользователя </p>
+                            </div>
+                            
+                        </div>
+                        
+                    </section>
+                    
+
+                </div>
+                
+
+            </div>
+            
+
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/retina.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/syntax-highlighter/scripts/shCore.js"></script>
+    <script src="js/syntax-highlighter/scripts/shBrushXml.js"></script>
+    <script src="js/syntax-highlighter/scripts/shBrushCss.js"></script>
+    <script src="js/syntax-highlighter/scripts/shBrushJScript.js"></script>
+</body>
+</html>

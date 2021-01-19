@@ -1,0 +1,460 @@
+
+@{
+    ViewData["Title"] = "Учебные материалы";
+}
+
+
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title m-b-20">
+                                    <h5 class="display-4 animated fadeInDown">Учебные материалы</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="alert alert-primary" role="alert">
+                                    <p>Учебные материалы по изучаемым Вами дисциплинам</p>
+                                    <label class="text-muted">В этом разделе мы собрали учебные материалы для Вас, по тем дисциплинам, которые Вы изучаете на курсе</label>
+                                </div>
+                            </div>
+                            <!-- [ tabs ] start -->
+                            
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    
+                                    <div class="col-md-3 col-sm-12">
+                                        <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <li><a class="nav-link text-left active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Учебники</a></li>
+                                            <li><a class="nav-link text-left" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Презентации</a></li>
+                                            <li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Видео</a></li>
+                                            <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Статьи</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-9 col-sm-12">
+
+                                        <div class="row">
+                                            <div class="col-md-12 m-b-20">
+                                                <p>Вы можете выбрать учебные материалы по определенной дисциплине. Для этого <code>выберите дисциплину</code> из списка</p>
+                                                <select class="js-example-basic-single form-control">
+                                                        <option value="AL">Все предметы</option>
+                                                        <option value="WY">Теория государства и права</option>
+                                                        <option value="WY">Экономическая теория</option>
+                                                        <option value="WY">Религиеведение</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-content tab-content-transparent" id="v-pills-tabContent">
+                                            
+                                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-xl-4">
+                                                        @* <h5>Капиталл</h5>
+                                                        <hr> *@
+                                                        <div class="card mb-3">
+                                                            <div class="card-block">
+                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономика</h5>
+                                                                <p class="card-text">Учебник для вузов</p>
+                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                
+                                                <div class="row">
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <div class="card-block p-0">
+                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp1.gif" alt="dashboard-user">
+                                                                <div class="ux-designer">
+                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                    <h5>Формы правления</h5>
+                                                                    <span>Иванов Семен Петрович</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <div class="card-block p-0">
+                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp2.gif" alt="dashboard-user">
+                                                                <div class="ux-designer">
+                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                    <h5>Понятие и классификация</h5>
+                                                                    <span>Иванов Семен Петрович</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <div class="card-block p-0">
+                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp4.gif" alt="dashboard-user">
+                                                                <div class="ux-designer">
+                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                    <h5>Лабораторная работа 3</h5>
+                                                                    <span>Симонов Николай Дмитриевич</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <div class="card-block p-0">
+                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp3.gif" alt="dashboard-user">
+                                                                <div class="ux-designer">
+                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                    <h5>Введение в анализ данных</h5>
+                                                                    <span>Иванов Семен Петрович</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                <div class="row">
+
+                                                    
+
+                                                    <div class="col-xl-6">
+                                                         <div class="card bg-light">
+                                                             <div class="card-header">Пути развития экономической науки</div>
+                                                            <div>
+                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ch3ZF1S7f1A?rel=0" allowfullscreen></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                         <div class="card bg-light">
+                                                             <div class="card-header">Почему вы должны учиться программированю</div>
+                                                            <div>
+                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BY1GNFrofrM?rel=0" allowfullscreen></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                         <div class="card bg-light">
+                                                             <div class="card-header">Что изучают экономисты?</div>
+                                                            <div>
+                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vgUwHs-vK-Q?rel=0" allowfullscreen></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                         <div class="card bg-light">
+                                                             <div class="card-header">Как работает рынок?</div>
+                                                            <div>
+                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L9MpLpN4yZE?rel=0" allowfullscreen></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономическая теория</h5>
+                                                                <p class="card-text">
+                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                    ресурсов для максимального удовлетворения потребностей людей.
+                                                                    Состоит из множества школ и направлений ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">tproger.ru</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">CI/CD</h5>
+                                                                <p class="card-text">
+                                                                    Часто при релизе обновлений проектов возникают ситуации,
+                                                                    когда по различным причинам на боевой сервис попадает баг, не
+                                                                    выявленный прежде на тестовых серверах. И в связи с этим, у
+                                                                    клиентов появляется ряд неудобств вплоть до полного ...
+                                                                </p>
+                                                                <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономическая теория</h5>
+                                                                <p class="card-text">
+                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                    ресурсов для максимального удовлетворения потребностей людей.
+                                                                    Состоит из множества школ и направлений ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Нюрнбергский процесс</h5>
+                                                                <p class="card-text">
+                                                                    Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
+                                                                    Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
+                                                                    судебных процессов, проходивших во Дворце юстиции города Нюрнберг
+                                                                    после окончания Второй мировой войныПерейти ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономическая теория</h5>
+                                                                <p class="card-text">
+                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                    ресурсов для максимального удовлетворения потребностей людей.
+                                                                    Состоит из множества школ и направлений ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">tproger.ru</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">CI/CD</h5>
+                                                                <p class="card-text">
+                                                                    Часто при релизе обновлений проектов возникают ситуации,
+                                                                    когда по различным причинам на боевой сервис попадает баг, не
+                                                                    выявленный прежде на тестовых серверах. И в связи с этим, у
+                                                                    клиентов появляется ряд неудобств вплоть до полного ...
+                                                                </p>
+                                                                <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Экономическая теория</h5>
+                                                                <p class="card-text">
+                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                    ресурсов для максимального удовлетворения потребностей людей.
+                                                                    Состоит из множества школ и направлений ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <h5 class="card-header">wikipedia.org</h5>
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Нюрнбергский процесс</h5>
+                                                                <p class="card-text">
+                                                                    Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
+                                                                    Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
+                                                                    судебных процессов, проходивших во Дворце юстиции города Нюрнберг
+                                                                    после окончания Второй мировой войныПерейти ...
+                                                                </p>
+                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- [ tabs ] end -->
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+
+@section Styles{
+    <!--lightbox css -->
+    <link rel="stylesheet" href="~/assets/plugins/lightbox2-master/css/lightbox.min.css">
+    <!-- Gallery css -->
+    <link rel="stylesheet" href="~/assets/css/pages/gallery.css">
+
+    <!-- select2 css -->
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+    <!-- multi-select css -->
+    <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
+}
+
+@section Scripts{
+
+    <!-- select2 Js -->
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- multi-select Js -->
+    <script src="~/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+    <script src="~/assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- form-select-custom Js -->
+    <script src="~/assets/js/pages/form-select-custom.js"></script>
+
+    <!--lightbox Js -->
+    <script src="~/assets/plugins/lightbox2-master/js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+    </script>
+
+    <!-- sweet alert Js -->
+    <script src="~/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+    @* <script src="~/assets/js/pages/ac-alert.js"></script> *@
+    <script>
+        $(document).ready(function() {
+            $('.sweet-success').on('click', function() {
+                swal("Выполнено!", "Проверьте папку загрузок!", "success");
+            });
+        });
+    </script>
+}
+

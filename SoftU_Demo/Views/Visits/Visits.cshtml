@@ -1,0 +1,253 @@
+
+@{
+    ViewData["Title"] = "Посещаемость";
+}
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title m-b-20">
+                                    <h5 class="display-4 animated fadeInDown">Посещаемость</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <div class="card">
+                                    <div class="card-block">
+                                        <h6 class="mb-4">Посещаемость последней недели</h6>
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-9">
+                                                <h3 class="f-w-300 d-flex align-items-center m-b-0"><i class="feather icon-arrow-up text-c-green f-30 m-r-10"></i>13%</h3>
+                                            </div>
+
+                                            <div class="col-3 text-right">
+                                                <p class="m-b-0">67%</p>
+                                            </div>
+                                        </div>
+                                        <div class="progress m-t-30" style="height: 7px;">
+                                            <div class="progress-bar progress-c-theme" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card theme-bg earning-date">
+                                    <div class="card-header borderless">
+                                        <h5 class="text-white">Последняя неделя</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="bd-example bd-example-tabs">
+                                            <div class="tab-content" id="tabContent-pills">
+                                                <div class="tab-pane fade show active" id="earnings-mon" role="tabpanel" aria-labelledby="pills-earnings-mon">
+                                                    <h2 class="text-white mb-3 f-w-300">5 %<i class="feather icon-arrow-up"></i></h2>
+                                                    <span class="text-white mb-4 d-block">ПОКАЗАТЕЛЬ</span>
+                                                </div>
+                                                <div class="tab-pane fade" id="earnings-tue" role="tabpanel" aria-labelledby="pills-earnings-tue">
+                                                    <h2 class="text-white mb-3 f-w-300">3 %<i class="feather icon-arrow-down"></i></h2>
+                                                    <span class="text-white mb-4 d-block">ПОКАЗАТЕЛЬ</span>
+                                                </div>
+                                                <div class="tab-pane fade" id="earnings-wed" role="tabpanel" aria-labelledby="pills-earnings-wed">
+                                                    <h2 class="text-white mb-3 f-w-300">7 %<i class="feather icon-arrow-up"></i></h2>
+                                                    <span class="text-white mb-4 d-block">ПОКАЗАТЕЛЬ</span>
+                                                </div>
+                                                <div class="tab-pane fade" id="earnings-thu" role="tabpanel" aria-labelledby="pills-earnings-thu">
+                                                    <h2 class="text-white mb-3 f-w-300">4 %<i class="feather icon-arrow-up"></i></h2>
+                                                    <span class="text-white mb-4 d-block">ПОКАЗАТЕЛЬ</span>
+                                                </div>
+                                                <div class="tab-pane fade" id="earnings-fri" role="tabpanel" aria-labelledby="pills-earnings-fri">
+                                                    <h2 class="text-white mb-3 f-w-300">3 %<i class="feather icon-arrow-down"></i></h2>
+                                                    <span class="text-white mb-4 d-block">ПОКАЗАТЕЛЬ</span>
+                                                </div>
+                                            </div>
+                                            <ul class="nav nav-pills align-items-center justify-content-center" id="pills-tab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="pills-earnings-mon" data-toggle="pill" href="#earnings-mon" role="tab" aria-controls="earnings-mon" aria-selected="true">Mon</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-earnings-tue" data-toggle="pill" href="#earnings-tue" role="tab" aria-controls="earnings-tue" aria-selected="false">Tue</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-earnings-wed" data-toggle="pill" href="#earnings-wed" role="tab" aria-controls="earnings-wed" aria-selected="false">Wed</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-earnings-thu" data-toggle="pill" href="#earnings-thu" role="tab" aria-controls="earnings-thu" aria-selected="false">Thu</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pills-earnings-fri" data-toggle="pill" href="#earnings-fri" role="tab" aria-controls="earnings-fri" aria-selected="false">Fri</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-8 col-md-6">
+                                <div class="card Recent-Users">
+                                    <div class="card-header">
+                                        <h5>Статистика последних посещений</h5>
+                                    </div>
+                                    <div class="card-block px-0 py-3">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                    <tr class="unread">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="~/assets/images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">Петров Михаил Александрович</h6>
+                                                            <p class="m-0">Экономическая теория (семинар)</p>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 НОЯ 12:56</h6>
+                                                        </td>
+                                                        <td><a href="#!" class="label theme-bg text-white f-12">присутствие</a></td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="~/assets/images/user/avatar-2.jpg" alt="activity-user"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">Митрофанова Ирина Владимировна</h6>
+                                                            <p class="m-0">История политическ ...  (лекция)</p>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 НОЯ 10:35</h6>
+                                                        </td>
+                                                        <td><a href="#!" class="label theme-bg text-white f-12">присутствие</a></td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="~/assets/images/user/avatar-3.jpg" alt="activity-user"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">Семенов Павел Иванович</h6>
+                                                            <p class="m-0">Социология (семинар)</p>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>9 НОЯ 17:38</h6>
+                                                        </td>
+                                                        <td><a href="#!" class="label theme-bg3 text-white f-12">пропуск</a></td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="~/assets/images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">Суслов Михаил Николаевич</h6>
+                                                            <p class="m-0">Экономическая теория (лекция)</p>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-muted f-w-300"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>19 НОЯ 12:56</h6>
+                                                        </td>
+                                                        <td><a href="#!" class="label theme-bg text-white f-12">присутствие</a></td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="~/assets/images/user/avatar-2.jpg" alt="activity-user"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">Суслов Михаил Николаевич</h6>
+                                                            <p class="m-0">Экономическая теория (лекция)</p>
+                                                        </td>
+                                                        <td>
+                                                            <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>21 ДЕК 12:56</h6>
+                                                        </td>
+                                                        <td><a href="#!" class="label theme-bg2 text-white f-12">опоздание</a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-4 col-md-6">
+                                
+                                <div class="card">
+                                    <div class="card-block border-bottom">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-auto">
+                                                <i class="feather icon-zap f-30 text-c-green"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h3 class="f-w-300">12</h3>
+                                                <span class="d-block text-uppercase">ЛЕКЦИЙ ПРОПУЩЕНО</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-block border-bottom">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-auto">
+                                                <i class="feather icon-map-pin f-30 text-c-blue"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h3 class="f-w-300">4</h3>
+                                                <span class="d-block text-uppercase">СЕМИНАРОВ ПРОПУЩЕНО</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-auto">
+                                                <i class="feather icon-map-pin f-30 text-c-blue"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h3 class="f-w-300">15%</h3>
+                                                <span class="d-block text-uppercase">ПРОПУСКОВ</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ statistics year chart ] end -->
+                            <!-- [social-media section] start -->
+                            
+                            <!-- [social-media section] end -->
+                            <!-- [ rating list ] starts-->
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Статистика посещаемости</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <div id="line-area2" class="lineAreaDashboard" style="height:350px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles{
+    <!-- notification css -->
+    <link rel="stylesheet" href="~/assets/plugins/notification/css/notification.min.css">
+}
+
+@section Scripts{
+    <!-- amchart js -->
+    <script src="~/assets/plugins/amchart/js/amcharts.js"></script>
+    <script src="~/assets/plugins/amchart/js/gauge.js"></script>
+    <script src="~/assets/plugins/amchart/js/serial.js"></script>
+    <script src="~/assets/plugins/amchart/js/light.js"></script>
+    <script src="~/assets/plugins/amchart/js/pie.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/ammap.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/usaLow.js"></script>
+    <script src="~/assets/plugins/amchart/js/radar.js"></script>
+    <script src="~/assets/plugins/amchart/js/worldLow.js"></script>
+    <!-- notification Js -->
+    <script src="~/assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+    <!-- dashboard-custom js -->
+    <script src="~/assets/js/pages/dashboard-custom.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/js/pages/chart.js"></script>
+}
+

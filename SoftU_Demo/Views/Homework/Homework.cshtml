@@ -1,0 +1,451 @@
+
+@{
+    ViewData["Title"] = "Домашние задания";
+}
+
+
+<!-- [ Main Content ] start -->
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <!-- [ breadcrumb ] start -->
+                <div class="page-header">
+                    <div class="page-block">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="page-header-title m-b-20">
+                                    <h5 class="display-4 animated fadeInDown">Домашние задания</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- [ breadcrumb ] end -->
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block user-chart">
+                                        <div class="row align-items-center justify-content-center">
+                                            @* <div class="col-auto">
+                                                <i class="fas fa-chart-line f-30"></i>
+                                            </div> *@
+                                            <div class="col text-center">
+                                                <img class="img-fluid rounded-circle" src="~/assets/images/user/avatar-1.jpg" alt="dashboard-user">
+                                            </div>
+                                            @* <div class="col-auto">
+                                                <i class="far fa-envelope f-30"></i>
+                                            </div> *@
+                                        </div>
+                                        <h5 class="m-t-30 text-center">На текущей неделе</h5>
+                                        <span class="text-center d-block">Вы увеличили активность по ДЗ</span>
+                                        <div class="row m-t-40">
+                                            <div class="col">
+                                                <div id="power-card-chart" class="ChartShadow" style="height:100px"></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <h3 class="f-w-300"><i class="fas fa-caret-up text-c-green f-22 m-r-10 m-l-10"></i>13 %</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+
+                                    <div class="card-block pb-0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card theme-bg visitor">
+                                                    <div class="card-block text-center">
+                                                        @* <h5 class="text-white m-0">TEXT</h5> *@
+                                                        <h1 class="text-white">34</h1>
+                                                        <small class="text-white">Выполнено ДЗ</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card theme-bg1 visitor">
+                                                    <div class="card-block text-center">
+                                                        @* <h5 class="text-white m-0">TEXT</h5> *@
+                                                        <h1 class="text-white">3</h1>
+                                                        <small class="text-white">Текущих ДЗ</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card theme-bg2 visitor">
+                                                    <div class="card-block text-center">
+                                                        @* <h5 class="text-white m-0">TEXT</h5> *@
+                                                        <h1 class="text-white">5</h1>
+                                                        <small class="text-white">На проверке</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card theme-bg3 visitor">
+                                                    <div class="card-block text-center">
+                                                        @* <h5 class="text-white m-0">TEXT</h5> *@
+                                                        <h1 class="text-white">2</h1>
+                                                        <small class="text-white">Просрочено ДЗ</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>   
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    @* <div class="card-header">
+                                        <h5>Общая статистика</h5>
+                                    </div> *@
+                                    <div class="card-block">
+                                        <div id="chart-percent" class="chart-percent" style="height:237px;"></div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <span class="mb-1 text-muted d-block">23%</span>
+                                                <div class="progress" style="height: 5px;">
+                                                    <div class="progress-bar progress-c-green" role="progressbar" style="width: 23%;" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <span class="mb-1 text-muted d-block">14%</span>
+                                                <div class="progress" style="height: 5px;">
+                                                    <div class="progress-bar progress-c-yellow" role="progressbar" style="width: 14%;" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col">
+                                                <span class="mb-1 text-muted d-block">35%</span>
+                                                <div class="progress" style="height: 5px;">
+                                                    <div class="progress-bar progress-c-purple" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <span class="mb-1 text-muted d-block">28%</span>
+                                                <div class="progress" style="height: 5px;">
+                                                    <div class="progress-bar progress-c-blue" role="progressbar" style="width: 28%;" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p>Список групп, в которых Вы учились</p>
+                                                <select class="js-example-basic-single form-control">
+                                                        <option value="AL">Все группы</option>
+                                                        <option value="WY">А51</option>
+                                                        <option value="WY">Б45</option>
+                                                        <option value="WY">В33</option>
+                                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p>Выберите <code>дисциплину</code> из списка для просмотра домашних заданий</p>
+                                                <select class="js-example-basic-single form-control">
+                                                        <option value="AL">Все предметы</option>
+                                                        <option value="WY">Теория государства и права</option>
+                                                        <option value="WY">Экономическая теория</option>
+                                                        <option value="WY">Религиеведение</option>
+                                                </select>
+                            </div>
+
+                            <div class="col-md-12 m-t-20">
+                                <h5 class="m-b-10 text-muted">Просрочено: 2</h5>
+                                <hr/>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h4 class="text-c-red">Формы и классиф ...</h4>
+                                                <h5>Петров И. М.</h5>
+                                                <span>Выдано: 30.09.2020</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <img src="~/assets/images/widget/shape2.png" style="width:80px;" alt="activity-user">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="#!" class="card-link sweet-success">Запросить пересдачу</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h4 class="text-c-red">Введение в кримин ...</h4>
+                                                <h5>Смирнов Н. К.</h5>
+                                                <span>Выдано: 5.10.2020</span>
+                                            </div>
+                                            <div class="col text-right">
+                                                <img src="~/assets/images/widget/shape2.png" style="width:80px;" alt="activity-user">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="#!" class="card-link sweet-success">Запросить пересдачу</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <h5 class="m-b-10 text-muted">Не выполнено: 3</h5>
+                                <hr/>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="text-center m-b-30">
+                                            <img class="img-fluid rounded-circle" src="~/assets/images/user/avatar-2.jpg" alt="dashboard-user">
+                                            <h5 class="mt-3">Михайлов Иван Петрович</h5>
+                                            <span class="d-block">Понятие государственного устройства</span>
+                                        </div>
+                                        <h6 class=" m-b-0">На выполение осталось <span class="float-right">3 дня</span></h6>
+                                        <div class="progress m-t-10" style="height: 7px;">
+                                            <div class="progress-bar progress-c-theme" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="row m-t-30">
+                                            <div class="col-6 p-r-0">
+                                                <a href="#!" class="btn btn-primary text-uppercase btn-block">Выполнить</a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="#!" class="btn text-uppercase border btn-block btn-outline-secondary">Написать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="text-center m-b-30">
+                                            <img class="img-fluid rounded-circle" src="~/assets/images/user/avatar-2.jpg" alt="dashboard-user">
+                                            <h5 class="mt-3">Симонов Виктор Леонидович</h5>
+                                            <span class="d-block">Введение в экономическую теорию</span>
+                                        </div>
+                                        <h6 class=" m-b-0">На выполение осталось <span class="float-right">7 дней</span></h6>
+                                        <div class="progress m-t-10" style="height: 7px;">
+                                            <div class="progress-bar progress-c-theme" role="progressbar" style="width: 70%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="row m-t-30">
+                                            <div class="col-6 p-r-0">
+                                                <a href="#!" class="btn btn-primary text-uppercase btn-block">Выполнить</a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="#!" class="btn text-uppercase border btn-block btn-outline-secondary">Написать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="text-center m-b-30">
+                                            <img class="img-fluid rounded-circle" src="~/assets/images/user/avatar-2.jpg" alt="dashboard-user">
+                                            <h5 class="mt-3">Александров Николай Владимирович</h5>
+                                            <span class="d-block">Принципы ООП</span>
+                                        </div>
+                                        <h6 class=" m-b-0">На выполение осталось <span class="float-right">5 дней</span></h6>
+                                        <div class="progress m-t-10" style="height: 7px;">
+                                            <div class="progress-bar progress-c-theme" role="progressbar" style="width: 70%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="row m-t-30">
+                                            <div class="col-6 p-r-0">
+                                                <a href="#!" class="btn btn-primary text-uppercase btn-block">Выполнить</a>
+                                            </div>
+                                            <div class="col-6">
+                                                <a href="#!" class="btn text-uppercase border btn-block btn-outline-secondary">Написать</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <h5 class="m-b-10 text-muted">Оценено: 5</h5>
+                                <hr/>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card theme-bg ticket-customer">
+                                    <div class="card-block">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-auto">
+                                                <h2 class="text-white mb-0 f-w-300">5</h2>
+                                            </div>
+                                            <div class="col">
+                                                <span class="text-white d-block">15.10.2020</span>
+                                                <span class="text-white">Здесь указываем тему урока ...</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-white f-w-300 mt-4">Миронов Н. П.</h5>
+                                        <i class="fas fa-file-alt text-white f-70"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card theme-bg ticket-customer">
+                                    <div class="card-block">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-auto">
+                                                <h2 class="text-white mb-0 f-w-300">5</h2>
+                                            </div>
+                                            <div class="col">
+                                                <span class="text-white d-block">15.10.2020</span>
+                                                <span class="text-white">Здесь указываем тему урока ...</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-white f-w-300 mt-4">Коробков Н. П.</h5>
+                                        <i class="fas fa-file-alt text-white f-70"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card theme-bg3 ticket-customer">
+                                    <div class="card-block">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-auto">
+                                                <h2 class="text-white mb-0 f-w-300">3</h2>
+                                            </div>
+                                            <div class="col">
+                                                <span class="text-white d-block">15.10.2020</span>
+                                                <span class="text-white">Здесь указываем тему урока ...</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-white f-w-300 mt-4">Иванов Н. П.</h5>
+                                        <i class="fas fa-file text-white f-70"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card theme-bg ticket-customer">
+                                    <div class="card-block">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-auto">
+                                                <h2 class="text-white mb-0 f-w-300">5</h2>
+                                            </div>
+                                            <div class="col">
+                                                <span class="text-white d-block">15.10.2020</span>
+                                                <span class="text-white">Здесь указываем тему урока ...</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-white f-w-300 mt-4">Миронов Н. П.</h5>
+                                        <i class="fas fa-file-alt text-white f-70"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card theme-bg2 ticket-customer">
+                                    <div class="card-block">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-auto">
+                                                <h2 class="text-white mb-0 f-w-300">4</h2>
+                                            </div>
+                                            <div class="col">
+                                                <span class="text-white d-block">15.10.2020</span>
+                                                <span class="text-white">Здесь указываем тему урока ...</span>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-white f-w-300 mt-4">Михальчук Н. П.</h5>
+                                        <i class="fas fa-file-alt text-white f-70"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+@section Styles{
+<!-- select2 css -->
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+    <!-- multi-select css -->
+    <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
+}
+
+@section Scripts{
+
+    <!-- select2 Js -->
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- multi-select Js -->
+    <script src="~/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+    <script src="~/assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- form-select-custom Js -->
+    <script src="~/assets/js/pages/form-select-custom.js"></script>
+
+
+    <!-- amchart js -->
+    <script src="~/assets/plugins/amchart/js/amcharts.js"></script>
+    <script src="~/assets/plugins/amchart/js/gauge.js"></script>
+    <script src="~/assets/plugins/amchart/js/serial.js"></script>
+    <script src="~/assets/plugins/amchart/js/light.js"></script>
+    <script src="~/assets/plugins/amchart/js/pie.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/ammap.min.js"></script>
+    <script src="~/assets/plugins/amchart/js/usaLow.js"></script>
+    <script src="~/assets/plugins/amchart/js/radar.js"></script>
+    <script src="~/assets/plugins/amchart/js/worldLow.js"></script>
+
+    <!-- Float Chart js -->
+    <script src="~/assets/plugins/flot/js/jquery.flot.js"></script>
+    <script src="~/assets/plugins/flot/js/jquery.flot.categories.js"></script>
+    <script src="~/assets/plugins/flot/js/curvedLines.js"></script>
+    <script src="~/assets/plugins/flot/js/jquery.flot.tooltip.min.js"></script>
+
+    <!-- WaterBall js -->
+    <script src="~/assets/plugins/waterball/js/createWaterBall-jquery.js"></script>
+
+    <!-- chart js -->
+    <script src="~/assets/js/pages/chart.js"></script>
+
+    <!-- sweet alert Js -->
+    <script src="~/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+    @* <script src="~/assets/js/pages/ac-alert.js"></script> *@
+    <script>
+        $(document).ready(function() {
+            $('.sweet-success').on('click', function() {
+                swal("Выполнено!", "Запрос направлен преподавателю!", "success");
+            });
+        });
+    </script>
+}
+
