@@ -25,24 +25,6 @@
 
     <ItemGroup>
       <None Remove="app.db" />
-      <None Remove="Data\**" />
-      <None Remove="Migrations\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Data\ApplicationDbContext.cs" />
-      <Compile Remove="Data\**" />
-      <Compile Remove="Migrations\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Data\**" />
-      <EmbeddedResource Remove="Migrations\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="Data\**" />
-      <Content Remove="Migrations\**" />
     </ItemGroup>
 
     <ItemGroup>

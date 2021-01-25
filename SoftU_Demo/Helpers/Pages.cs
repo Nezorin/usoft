@@ -13,4 +13,5 @@ namespace SoftU_WebApp.Helpers
         public static Pages SignIn { get { return new Pages("SignIn"); } }
         public static Pages ResetPassword { get { return new Pages("ResetPassword"); } }
     }
+
 }
