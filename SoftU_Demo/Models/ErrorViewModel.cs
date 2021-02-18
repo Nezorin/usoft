@@ -1,5 +1,3 @@
-using System;
-
 namespace SoftU_WebApp.Models
 {
     public class ErrorViewModel

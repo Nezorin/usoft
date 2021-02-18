@@ -37,8 +37,11 @@
         </li>
 
     </ul>
-    <a href="#">Студент: Иванов Алексей Петрович<span class="badge theme-bg3 text-white text-uppercase m-l-10">
-            демо-версия</span></a>
+    <a href="#">
+        Студент: @User.Identity.Name<span class="badge theme-bg3 text-white text-uppercase m-l-10">
+            демо-версия
+        </span>
+    </a>
     <ul class="navbar-nav ml-auto">
         <li>
             <div class="dropdown">
@@ -107,7 +110,7 @@ alt="Generic placeholder image">
                     <div class="pro-head">
                         <img src="~/assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                         <span>Иванов Алексей</span>
-                        <a asp-action="SignIn2" asp-controller="Auth" class="dud-logout" title="Выйти">
+                        <a asp-action="SignOut" asp-controller="Auth" class="dud-logout" title="Выйти">
                             <i class="feather icon-log-out"></i>
                         </a>
                     </div>
