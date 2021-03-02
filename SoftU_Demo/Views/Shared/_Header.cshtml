@@ -1,4 +1,21 @@
-﻿<div class="m-header">
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> _userManager;
+@inject SignInManager<ApplicationUser> _signInManager;
+@{
+    var user = await _userManager.FindByNameAsync(User.Identity.Name ?? "");
+    string FirstName = string.Empty;
+    string MiddleName = string.Empty;
+    string LastName = string.Empty;
+    if (user != null && _signInManager.IsSignedIn(User))
+    {
+        {
+            FirstName = user.FirstName;
+            MiddleName = user.MiddleName;
+            LastName = user.LastName;
+        }
+    }
+}
+<div class="m-header">
     <a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
     <a asp-action="Today" asp-controller="Today" class="b-brand">
         <div class="b-bg">
@@ -12,8 +29,11 @@
 </a>
 <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
-        <li><a href="#!" class="full-screen" onclick="javascript:toggleFullScreen()"><i
-                class="feather icon-maximize"></i></a></li>
+        <li>
+            <a href="#!" class="full-screen" onclick="javascript:toggleFullScreen()">
+                <i class="feather icon-maximize"></i>
+            </a>
+        </li>
         <li class="nav-item dropdown">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Быстрые действия</a>
             <ul class="dropdown-menu">
@@ -38,7 +58,7 @@
 
     </ul>
     <a href="#">
-        Студент: @User.Identity.Name<span class="badge theme-bg3 text-white text-uppercase m-l-10">
+        Студент: @FirstName @MiddleName<span class="badge theme-bg3 text-white text-uppercase m-l-10">
             демо-версия
         </span>
     </a>
@@ -61,10 +81,13 @@
                         <li class="notification">
                             <div class="media">
                                 <img class="img-radius" src="~/assets/images/user/avatar-1.jpg"
-alt="Generic placeholder image">
+                                     alt="Generic placeholder image">
                                 <div class="media-body">
-                                    <p><strong>Михайлов И.П.</strong><span class="n-time text-muted"><i
-                                            class="icon feather icon-clock m-r-10"></i>30 минут</span></p>
+                                    <p>
+                                        <strong>Михайлов И.П.</strong><span class="n-time text-muted">
+                                            <i class="icon feather icon-clock m-r-10"></i>30 минут
+                                        </span>
+                                    </p>
                                     <p>Добавил ДЗ к занятию</p>
                                 </div>
                             </div>
@@ -75,10 +98,13 @@ alt="Generic placeholder image">
                         <li class="notification">
                             <div class="media">
                                 <img class="img-radius" src="~/assets/images/user/avatar-2.jpg"
-alt="Generic placeholder image">
+                                     alt="Generic placeholder image">
                                 <div class="media-body">
-                                    <p><strong>Иванов Н.П.</strong><span class="n-time text-muted"><i
-                                            class="icon feather icon-clock m-r-10"></i>вчера</span></p>
+                                    <p>
+                                        <strong>Иванов Н.П.</strong><span class="n-time text-muted">
+                                            <i class="icon feather icon-clock m-r-10"></i>вчера
+                                        </span>
+                                    </p>
                                     <p>Оставил по Вам отзыв</p>
                                 </div>
                             </div>
@@ -86,10 +112,13 @@ alt="Generic placeholder image">
                         <li class="notification">
                             <div class="media">
                                 <img class="img-radius" src="~/assets/images/user/avatar-3.jpg"
-alt="Generic placeholder image">
+                                     alt="Generic placeholder image">
                                 <div class="media-body">
-                                    <p><strong>Симашко Д.Б.</strong><span class="n-time text-muted"><i
-                                            class="icon feather icon-clock m-r-10"></i>вчера</span></p>
+                                    <p>
+                                        <strong>Симашко Д.Б.</strong><span class="n-time text-muted">
+                                            <i class="icon feather icon-clock m-r-10"></i>вчера
+                                        </span>
+                                    </p>
                                     <p>Загрузила новый материал</p>
                                 </div>
                             </div>
@@ -109,8 +138,8 @@ alt="Generic placeholder image">
                 <div class="dropdown-menu dropdown-menu-right profile-notification">
                     <div class="pro-head">
                         <img src="~/assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
-                        <span>Иванов Алексей</span>
-                        <a asp-action="SignOut" asp-controller="Auth" class="dud-logout" title="Выйти">
+                        <span>@LastName @FirstName</span>
+                        <a asp-action="LogOut" asp-controller="Auth" class="dud-logout" title="Выйти">
                             <i class="feather icon-log-out"></i>
                         </a>
                     </div>
@@ -118,7 +147,8 @@ alt="Generic placeholder image">
                         <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> Настройки</a></li>
                         <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> Мой профиль</a></li>
                         <li><a href="#!" class="dropdown-item"><i class="feather icon-mail"></i> Отзывы</a></li>
-                        <li><a href="#!" class="dropdown-item"><i class="feather icon-lock"></i> Заблокировать экран</a>
+                        <li>
+                            <a href="#!" class="dropdown-item"><i class="feather icon-lock"></i> Заблокировать экран</a>
                         </li>
                     </ul>
                 </div>

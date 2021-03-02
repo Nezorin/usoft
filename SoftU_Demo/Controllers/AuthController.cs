@@ -4,24 +4,40 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SoftU_WebApp.Models;
-using WebApp.Models;
+using WebApp.ViewModels;
 using WebApp.Services;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using System;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace SoftU_WebApp.Controllers
 {
     public class AuthController : Controller
     {
+        private readonly ILogger<AuthController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        public AuthController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        private readonly IConfiguration _config;
+        public AuthController( ILogger<AuthController> logger,UserManager<ApplicationUser> userManager, 
+            SignInManager<ApplicationUser> signInManager, IConfiguration config)
         {
+            _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
+            _config = config; 
         }
 
         [HttpGet]
         public IActionResult SignIn()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Today", "Today");
+            }
             return View();
         }
 
@@ -51,6 +67,10 @@ namespace SoftU_WebApp.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Today", "Today");
+            }
             return View();
         }
         [HttpPost]
@@ -58,7 +78,12 @@ namespace SoftU_WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser { Email = model.Email, UserName = model.UserName, EmailConfirmed = true };
+                ApplicationUser user = new ApplicationUser {
+                    Email = model.Email,
+                    UserName = model.Email, FirstName = model.FirstName,
+                    MiddleName = model.MiddleName, LastName = model.LastName,
+                    Group = model.Group,
+                    EmailConfirmed = true };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -75,6 +100,7 @@ namespace SoftU_WebApp.Controllers
                     }
                 }
             }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
             return View(model);
         }
 
@@ -82,6 +108,10 @@ namespace SoftU_WebApp.Controllers
         [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Today", "Today");
+            }
             return View();
         }
 
@@ -114,6 +144,10 @@ namespace SoftU_WebApp.Controllers
         [AllowAnonymous]
         public IActionResult ResetPassword(string code = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Today", "Today");
+            }
             return code == null ? View("Error") : View();
         }
 
@@ -143,11 +177,49 @@ namespace SoftU_WebApp.Controllers
             return View(model);
         }
         [HttpGet]
-        public async Task<IActionResult> SignOut()
+        public async Task<IActionResult> LogOut()
         {
             // удаляем аутентификационные куки
             await _signInManager.SignOutAsync();
             return RedirectToAction("SignIn", "Auth");
         }
+       // JWT TOKEN
+       //[HttpPost]
+       // public async Task<IActionResult> CreateToken([FromBody] SignInViewModel model)
+       // {
+       //     if (ModelState.IsValid)
+       //     {
+       //         var user = await _userManager.FindByNameAsync(model.UserName);
+       //         if (user != null)
+       //         {
+       //             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+       //             if (result.Succeeded)
+       //             {
+       //                 //Create the token
+       //                 var claims = new[]
+       //                 {
+       //                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+       //                     new Claim(JwtRegisteredClaimNames.Jti, new Guid().ToString()),
+       //                 };
+       //                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+       //                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+       //                 var token = new JwtSecurityToken(
+       //                     _config["Token:Isuuer"],
+       //                     _config["Token:Audience"],
+       //                     claims,
+       //                     expires: DateTime.UtcNow.AddMinutes(30),
+       //                     signingCredentials: creds
+       //                     );
+       //                 var results = new
+       //                 {
+       //                     token = new JwtSecurityTokenHandler().WriteToken(token),
+       //                     expiration = token.ValidTo
+       //                 };
+       //                 return Created("", results);
+       //             }
+       //         }
+       //     }
+       //     return BadRequest();
+       // }
     }
 }

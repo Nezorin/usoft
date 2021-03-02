@@ -1,4 +1,4 @@
-﻿@model WebApp.Models.SignUpViewModel
+﻿@model WebApp.ViewModels.SignUpViewModel
 @{
     ViewData["Title"] = "Регистрация";
     Layout = null;
@@ -54,13 +54,37 @@
             <input type="number" class="form-control" placeholder="Номер студенческого билета">
         </div>*@
                         <div class="input-group mb-3">
-                            <input type="text" name="UserName" class="form-control" asp-for="UserName" placeholder="Логин">
-                        </div>
-                        <div class="input-group mb-3">
                             <input type="email" name="Email" class="form-control" asp-for="Email" placeholder="Email">
                         </div>
                         <div class="input-group mb-4">
                             <input type="password" name="Password" class="form-control" asp-for="Password" placeholder="Пароль">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="LastName" class="form-control" asp-for="LastName" placeholder="Фамилия">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="FirstName" class="form-control" asp-for="FirstName" placeholder="Имя">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="MiddleName" class="form-control" asp-for="MiddleName" placeholder="Отчество">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Группа1" asp-for="Group" type="radio" name="Group">
+                            <label class="form-check-label" asp-for="Group">
+                                Группа1
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Группа2" asp-for="Group" type="radio" name="Group">
+                            <label class="form-check-label" asp-for="Group">
+                                Группа2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Группа3" asp-for="Group" type="radio" name="Group">
+                            <label class="form-check-label" asp-for="Group">
+                                Группа3
+                            </label>
                         </div>
                         <div class="form-group text-left">
                             <div class="checkbox checkbox-fill d-inline">

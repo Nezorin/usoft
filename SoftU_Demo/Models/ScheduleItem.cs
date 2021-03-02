@@ -5,7 +5,8 @@ namespace SoftU_WebApp.Models
     public class ScheduleItem : BaseModel
     {
         public DateTime Start { get; set; }
-        public TimeSpan Duration { get; set; }
-        public AcademicDiscipline Discipline { get; set; }
+        public string Discipline { get; set; }
+        public DateTime End { get; set; }
+        public string Group { get; set; }
     }
 }

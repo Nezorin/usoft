@@ -1,18 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models
+namespace WebApp.ViewModels
 {
-    public class SignUpViewModel
+    public class SignInViewModel
     {
         [Required]
-        [Display(Name = "UserName")]
-        public string UserName { get; set; }
-        [Required]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public string UserName { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
+
+        [Display(Name = "Запомнить?")]
+        public bool RememberMe { get; set; }
     }
 }

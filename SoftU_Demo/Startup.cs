@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using SoftU_WebApp.Models;
 using WebApp.Data;
 
@@ -35,35 +35,23 @@ namespace SoftU_WebApp
                 {
                     options.User.RequireUniqueEmail = true;
                     options.Password.RequireDigit = true;
-                    options.Password.RequireUppercase = true;
                     options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthentication()
-                    .AddCookie();
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
+                     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,options =>
+                      {
+                          options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Auth/SignIn");
+                          options.LogoutPath = "Auth/LogOut";
+                      });
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Auth/SignIn");
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddRazorPagesOptions(options =>
-                {
-                    options.Conventions.AuthorizePage("/Auth/SignIn");
-                });
 
+            services.AddMvc();
             services.AddControllersWithViews(mvcOtions =>
             {
                 mvcOtions.EnableEndpointRouting = false;
-            });
-
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.KnownProxies.Add(IPAddress.Parse("10.255.250.181"));
             });
         }
 
@@ -71,11 +59,6 @@ namespace SoftU_WebApp
         [Obsolete]
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -89,8 +72,8 @@ namespace SoftU_WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-             
-            //app.UseCookiePolicy();
+
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();

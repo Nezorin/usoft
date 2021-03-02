@@ -10,7 +10,7 @@ namespace WebApp.Services
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация Usoft", "kedich328@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Администрация Usoft", "UsoftTestMail@gmail.com"));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
