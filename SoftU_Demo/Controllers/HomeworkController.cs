@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace SoftU_WebApp.Controllers
+namespace WebApp.Controllers
 {
+    [Authorize]
     public class HomeworkController : Controller
     {
         public IActionResult Homework()

@@ -1,6 +1,6 @@
 using System;
 
-namespace SoftU_WebApp.Models
+namespace WebApp.Models
 {
     /// <summary>
     /// Интерфейс базовой модели

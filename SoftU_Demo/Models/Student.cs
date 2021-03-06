@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SoftU_WebApp.Models
+namespace WebApp.Models
 {
     public class Student /*: ApplicationUser*/
     {

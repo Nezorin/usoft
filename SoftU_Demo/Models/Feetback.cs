@@ -1,4 +1,4 @@
-namespace SoftU_WebApp.Models
+namespace WebApp.Models
 {
     public class Feetback : BaseModel
     {

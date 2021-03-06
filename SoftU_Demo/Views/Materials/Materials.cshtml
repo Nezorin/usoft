@@ -1,4 +1,4 @@
-
+@model IEnumerable<WebApp.Models.FileModel>
 @{
     ViewData["Title"] = "Учебные материалы";
 }
@@ -52,21 +52,28 @@
                                             <div class="col-md-12 m-b-20">
                                                 <p>Вы можете выбрать учебные материалы по определенной дисциплине. Для этого <code>выберите дисциплину</code> из списка</p>
                                                 <select class="js-example-basic-single form-control">
-                                                        <option value="AL">Все предметы</option>
-                                                        <option value="WY">Теория государства и права</option>
-                                                        <option value="WY">Экономическая теория</option>
-                                                        <option value="WY">Религиеведение</option>
+                                                    <option value="AL">Все предметы</option>
+                                                    <option value="WY">Теория государства и права</option>
+                                                    <option value="WY">Экономическая теория</option>
+                                                    <option value="WY">Религиеведение</option>
                                                 </select>
                                             </div>
                                         </div>
+                                        @if(User.IsInRole("Admin"))
+                                        { 
+                                        <form asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
+                                            <input type="file" name="uploadedFile" /><br>
+                                            <input type="submit" value="Загрузить" />
+                                        </form>
+                                        }
 
                                         <div class="tab-content tab-content-transparent" id="v-pills-tabContent">
-                                            
+
                                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <div class="row">
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-                                                        <hr> *@
+            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
@@ -80,7 +87,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-                                                        <hr> *@
+            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
@@ -94,7 +101,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-                                                        <hr> *@
+            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
@@ -106,53 +113,29 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                        <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                            </div>
+                                                    @foreach (var f in Model)
+                                                    {
+                                                <div class="col-md-6 col-xl-4">
+                                                    @* <h5>Капиталл</h5>
+        <hr> *@
+                                                    <div class="card mb-3">
+                                                        <div class="card-block">
+                                                            <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">@f.Name</h5>
+                                                            <p class="card-text">@f.Name</p>
+                                                            <p class="card-text"><small class="text-muted">файл<a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-name=@f.Name class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                        <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                        <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                </div>}
+
+                                                </div>
                                                 </div>
                                             </div>
 
                                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                                
+
                                                 <div class="row">
 
                                                     <div class="col-xl-6">
@@ -214,50 +197,50 @@
                                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                                 <div class="row">
 
-                                                    
+
 
                                                     <div class="col-xl-6">
-                                                         <div class="card bg-light">
-                                                             <div class="card-header">Пути развития экономической науки</div>
+                                                        <div class="card bg-light">
+                                                            <div class="card-header">Пути развития экономической науки</div>
                                                             <div>
                                                                 <div class="img-round-brl embed-responsive embed-responsive-16by9">
                                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ch3ZF1S7f1A?rel=0" allowfullscreen></iframe>
                                                                 </div>
                                                             </div>
-                                                        </div>   
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-xl-6">
-                                                         <div class="card bg-light">
-                                                             <div class="card-header">Почему вы должны учиться программированю</div>
+                                                        <div class="card bg-light">
+                                                            <div class="card-header">Почему вы должны учиться программированю</div>
                                                             <div>
                                                                 <div class="img-round-brl embed-responsive embed-responsive-16by9">
                                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BY1GNFrofrM?rel=0" allowfullscreen></iframe>
                                                                 </div>
                                                             </div>
-                                                        </div>   
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-xl-6">
-                                                         <div class="card bg-light">
-                                                             <div class="card-header">Что изучают экономисты?</div>
+                                                        <div class="card bg-light">
+                                                            <div class="card-header">Что изучают экономисты?</div>
                                                             <div>
                                                                 <div class="img-round-brl embed-responsive embed-responsive-16by9">
                                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vgUwHs-vK-Q?rel=0" allowfullscreen></iframe>
                                                                 </div>
                                                             </div>
-                                                        </div>   
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-xl-6">
-                                                         <div class="card bg-light">
-                                                             <div class="card-header">Как работает рынок?</div>
+                                                        <div class="card bg-light">
+                                                            <div class="card-header">Как работает рынок?</div>
                                                             <div>
                                                                 <div class="img-round-brl embed-responsive embed-responsive-16by9">
                                                                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L9MpLpN4yZE?rel=0" allowfullscreen></iframe>
                                                                 </div>
                                                             </div>
-                                                        </div>   
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

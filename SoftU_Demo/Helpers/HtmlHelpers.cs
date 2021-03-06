@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 
-namespace SoftU_WebApp.Helpers
+namespace WebApp.Helpers
 {
     public static class HtmlHelpers
     {

@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using SoftU_WebApp.Models;
+using WebApp.Models;
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<FileModel> Files { get; set; }
         public virtual DbSet<ScheduleItem> ScheduleItems { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -20,6 +22,12 @@ namespace WebApp.Data
             .AddJsonFile("appsettings.json")
             .Build();
             optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User", NormalizedName = "User".ToUpper() });
         }
     }
 }

@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SoftU_WebApp.Models;
+using WebApp.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Data;
 
-namespace SoftU_WebApp.Controllers
+namespace WebApp.Controllers
 {
     [Authorize]
     public class ScheduleController : Controller

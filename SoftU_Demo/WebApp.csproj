@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <UserSecretsId>aspnet-SoftU_WebApp-F207C712-2EEC-4A46-A1EA-8E2C6C4D6A67</UserSecretsId>
+        <UserSecretsId>aspnet-WebApp-F207C712-2EEC-4A46-A1EA-8E2C6C4D6A67</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -32,6 +32,10 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\Files\" />
     </ItemGroup>
 
 </Project>

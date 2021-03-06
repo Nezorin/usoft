@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using SoftU_WebApp.Models;
+using WebApp.Models;
 using WebApp.Data;
 
-namespace SoftU_WebApp
+namespace WebApp
 {
     public class Startup
     {

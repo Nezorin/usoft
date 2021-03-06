@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SoftU_WebApp.Models
+namespace WebApp.Models
 {
     public class University : BaseModel
     {

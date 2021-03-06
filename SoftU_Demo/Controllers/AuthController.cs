@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SoftU_WebApp.Models;
+using WebApp.Models;
 using WebApp.ViewModels;
 using WebApp.Services;
 using System.Security.Claims;
@@ -14,7 +14,7 @@ using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 
-namespace SoftU_WebApp.Controllers
+namespace WebApp.Controllers
 {
     public class AuthController : Controller
     {
@@ -88,6 +88,11 @@ namespace SoftU_WebApp.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "User");
+                    if (user.Email == "Admin@gmail.com")
+                    {
+                        await _userManager.AddToRoleAsync(user, "Admin");// TODO удалить перенести в бд
+                    }
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("SignIn", "Auth");

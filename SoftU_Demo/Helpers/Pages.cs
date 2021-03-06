@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SoftU_WebApp.Helpers
+namespace WebApp.Helpers
 {
     public class Pages
     {

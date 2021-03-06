@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace SoftU_WebApp.Models
+namespace WebApp.Models
 {
     public class Material : BaseModel
     {
