@@ -23,6 +23,6 @@ namespace WebApp.ViewModels
         public string LastName { get; set; }
         [Required]
         [Display(Name = "Group")]
-        public string Group{ get; set; }
+        public string Group { get; set; }
     }
 }

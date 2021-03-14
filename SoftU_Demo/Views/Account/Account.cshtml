@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> _userManager;
+@inject SignInManager<ApplicationUser> _signInManager;
+@{
+    var user = await _userManager.FindByNameAsync(User.Identity.Name ?? "");
+}
+@{ ViewData["Title"] = "Профиль"; }
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+
+                <div class="span2">
+                    <img src="~/assets/images/user/avatar-1.jpg" class="img-circle">
+                </div>
+
+                <div class="span4">
+                    <h4>Фамилия: @user.LastName</h4>
+                    <h4>Имя: @user.FirstName</h4>
+                    <h4>Отчество: @user.MiddleName</h4>
+                    <h4>Email: @user.Email</h4>
+                </div>
+                <a asp-action="ChangePassword" asp-controller="Account" type="button" class="btn btn-primary">Сменить пароль</a>
+            </div>
+        </div>
+    </div>
+</div>

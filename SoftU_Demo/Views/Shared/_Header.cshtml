@@ -57,7 +57,7 @@
         </li>
 
     </ul>
-    <a href="#">
+    <a asp-action="Account" asp-controller="Account">
         Студент: @FirstName @MiddleName<span class="badge theme-bg3 text-white text-uppercase m-l-10">
             демо-версия
         </span>
@@ -145,7 +145,7 @@
                     </div>
                     <ul class="pro-body">
                         <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> Настройки</a></li>
-                        <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> Мой профиль</a></li>
+                        <li><a asp-action="Account" asp-controller="Account" class="dropdown-item"><i class="feather icon-user"></i> Мой профиль</a></li>
                         <li><a href="#!" class="dropdown-item"><i class="feather icon-mail"></i> Отзывы</a></li>
                         <li>
                             <a href="#!" class="dropdown-item"><i class="feather icon-lock"></i> Заблокировать экран</a>

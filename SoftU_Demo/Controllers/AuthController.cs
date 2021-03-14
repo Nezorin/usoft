@@ -1,18 +1,13 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
-using WebApp.ViewModels;
-using WebApp.Services;
-using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
-using System;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+using System.Threading.Tasks;
+using WebApp.Models;
+using WebApp.Services;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -22,13 +17,14 @@ namespace WebApp.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _config;
-        public AuthController( ILogger<AuthController> logger,UserManager<ApplicationUser> userManager, 
+
+        public AuthController(ILogger<AuthController> logger, UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager, IConfiguration config)
         {
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
-            _config = config; 
+            _config = config;
         }
 
         [HttpGet]
@@ -55,7 +51,7 @@ namespace WebApp.Controllers
                     {
                         return Redirect(Request.Query["ReturnUrl"].First());
                     }
-                  return RedirectToAction("Today", "Today");
+                    return RedirectToAction("Today", "Today");
                 }
                 else
                 {
@@ -78,21 +74,21 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser user = new ApplicationUser {
+                ApplicationUser user = new ApplicationUser
+                {
                     Email = model.Email,
-                    UserName = model.Email, FirstName = model.FirstName,
-                    MiddleName = model.MiddleName, LastName = model.LastName,
+                    UserName = model.Email,
+                    FirstName = model.FirstName,
+                    MiddleName = model.MiddleName,
+                    LastName = model.LastName,
                     Group = model.Group,
-                    EmailConfirmed = true };
+                    EmailConfirmed = true
+                };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
-                    if (user.Email == "Admin@gmail.com")
-                    {
-                        await _userManager.AddToRoleAsync(user, "Admin");// TODO удалить перенести в бд
-                    }
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("SignIn", "Auth");
@@ -188,43 +184,43 @@ namespace WebApp.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("SignIn", "Auth");
         }
-       // JWT TOKEN
-       //[HttpPost]
-       // public async Task<IActionResult> CreateToken([FromBody] SignInViewModel model)
-       // {
-       //     if (ModelState.IsValid)
-       //     {
-       //         var user = await _userManager.FindByNameAsync(model.UserName);
-       //         if (user != null)
-       //         {
-       //             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-       //             if (result.Succeeded)
-       //             {
-       //                 //Create the token
-       //                 var claims = new[]
-       //                 {
-       //                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-       //                     new Claim(JwtRegisteredClaimNames.Jti, new Guid().ToString()),
-       //                 };
-       //                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
-       //                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-       //                 var token = new JwtSecurityToken(
-       //                     _config["Token:Isuuer"],
-       //                     _config["Token:Audience"],
-       //                     claims,
-       //                     expires: DateTime.UtcNow.AddMinutes(30),
-       //                     signingCredentials: creds
-       //                     );
-       //                 var results = new
-       //                 {
-       //                     token = new JwtSecurityTokenHandler().WriteToken(token),
-       //                     expiration = token.ValidTo
-       //                 };
-       //                 return Created("", results);
-       //             }
-       //         }
-       //     }
-       //     return BadRequest();
-       // }
+        // JWT TOKEN
+        //[HttpPost]
+        // public async Task<IActionResult> CreateToken([FromBody] SignInViewModel model)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         var user = await _userManager.FindByNameAsync(model.UserName);
+        //         if (user != null)
+        //         {
+        //             var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+        //             if (result.Succeeded)
+        //             {
+        //                 //Create the token
+        //                 var claims = new[]
+        //                 {
+        //                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+        //                     new Claim(JwtRegisteredClaimNames.Jti, new Guid().ToString()),
+        //                 };
+        //                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+        //                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        //                 var token = new JwtSecurityToken(
+        //                     _config["Token:Isuuer"],
+        //                     _config["Token:Audience"],
+        //                     claims,
+        //                     expires: DateTime.UtcNow.AddMinutes(30),
+        //                     signingCredentials: creds
+        //                     );
+        //                 var results = new
+        //                 {
+        //                     token = new JwtSecurityTokenHandler().WriteToken(token),
+        //                     expiration = token.ValidTo
+        //                 };
+        //                 return Created("", results);
+        //             }
+        //         }
+        //     }
+        //     return BadRequest();
+        // }
     }
 }

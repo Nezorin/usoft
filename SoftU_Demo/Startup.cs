@@ -1,17 +1,13 @@
-﻿using System;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using WebApp.Models;
+using System;
 using WebApp.Data;
+using WebApp.Models;
 
 namespace WebApp
 {
@@ -41,11 +37,11 @@ namespace WebApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAuthentication()
-                     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,options =>
-                      {
-                          options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Auth/SignIn");
-                          options.LogoutPath = "Auth/LogOut";
-                      });
+                     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+                       {
+                           options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Auth/SignIn");
+                           options.LogoutPath = "Auth/LogOut";
+                       });
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Auth/SignIn");
 
             services.AddMvc();

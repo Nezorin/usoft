@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,8 +14,8 @@ namespace WebApp.Controllers
     [Authorize]
     public class MaterialsController : Controller
     {
-        ApplicationDbContext _context;
-        IWebHostEnvironment _applicationEnvironment;
+        private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _applicationEnvironment;
         public IActionResult Materials()
         {
             return View(_context.Files.ToList());
@@ -36,7 +37,7 @@ namespace WebApp.Controllers
                 {
                     await uploadedFile.CopyToAsync(fileStream);
                 }
-                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path };
+                FileModel file = new FileModel { Name = uploadedFile.FileName, Path = path, TimeAdded = DateTime.Now };
                 _context.Files.Add(file);
                 _context.SaveChanges();
             }

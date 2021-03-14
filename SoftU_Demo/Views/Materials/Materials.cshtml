@@ -59,7 +59,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        @if(User.IsInRole("Admin"))
+                                        @if(User.IsInRole("admin"))
                                         { 
                                         <form asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
                                             <input type="file" name="uploadedFile" /><br>
@@ -116,14 +116,12 @@
                                                     @foreach (var f in Model)
                                                     {
                                                 <div class="col-md-6 col-xl-4">
-                                                    @* <h5>Капиталл</h5>
-        <hr> *@
                                                     <div class="card mb-3">
                                                         <div class="card-block">
-                                                            <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
+                                                            <img class="img-thumbnail shadow-2" src=@Url.Content(f.Path) alt="Card image cap">
                                                         </div>
                                                         <div class="card-body">
-                                                            <h5 class="card-title">@f.Name</h5>
+                                                            <h5 class="card-title">Добавлен @f.TimeAdded</h5>
                                                             <p class="card-text">@f.Name</p>
                                                             <p class="card-text"><small class="text-muted">файл<a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-name=@f.Name class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
                                                         </div>

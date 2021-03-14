@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApp.Data;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -18,7 +18,6 @@ namespace WebApp.Controllers
             _dbContext = dbContext;
             _userManager = userManager;
         }
-        [Authorize]
         public IActionResult Schedule()
         {
             return View();
@@ -38,7 +37,7 @@ namespace WebApp.Controllers
                 backgroundColor = "#a389d4",
                 textColor = "#fff"
             }).ToList();
-                return new JsonResult(events);
+            return new JsonResult(events);
         }
     }
 }
