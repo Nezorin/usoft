@@ -35,6 +35,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Views\Materials\" />
+      <Folder Include="wwwroot\css\Новая папка1\" />
+      <Folder Include="wwwroot\css\Новая папка\" />
       <Folder Include="wwwroot\Files\" />
     </ItemGroup>
 

@@ -34,16 +34,27 @@
                                 </div>
                             </div>
                             <!-- [ tabs ] start -->
-                            
+
                             <div class="col-sm-12">
                                 <div class="row">
-                                    
+
                                     <div class="col-md-3 col-sm-12">
                                         <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                             <li><a class="nav-link text-left active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Учебники</a></li>
                                             <li><a class="nav-link text-left" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Презентации</a></li>
                                             <li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Видео</a></li>
                                             <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Статьи</a></li>
+                                            @if (User.IsInRole("admin"))
+                                            {
+                                                <li>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                                        Загрузить файл
+                                                    </button>
+                                                </li>
+                                            }
+
+
+
                                         </ul>
                                     </div>
                                     <div class="col-md-9 col-sm-12">
@@ -59,13 +70,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        @if(User.IsInRole("admin"))
-                                        { 
-                                        <form asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
-                                            <input type="file" name="uploadedFile" /><br>
-                                            <input type="submit" value="Загрузить" />
-                                        </form>
-                                        }
+
 
                                         <div class="tab-content tab-content-transparent" id="v-pills-tabContent">
 
@@ -73,7 +78,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-            <hr> *@
+                                                            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
@@ -87,7 +92,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-            <hr> *@
+                                                            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
@@ -101,7 +106,7 @@
                                                     </div>
                                                     <div class="col-md-6 col-xl-4">
                                                         @* <h5>Капиталл</h5>
-            <hr> *@
+                                                            <hr> *@
                                                         <div class="card mb-3">
                                                             <div class="card-block">
                                                                 <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
@@ -115,281 +120,341 @@
                                                     </div>
                                                     @foreach (var f in Model)
                                                     {
-                                                <div class="col-md-6 col-xl-4">
-                                                    <div class="card mb-3">
-                                                        <div class="card-block">
-                                                            <img class="img-thumbnail shadow-2" src=@Url.Content(f.Path) alt="Card image cap">
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Добавлен @f.TimeAdded</h5>
-                                                            <p class="card-text">@f.Name</p>
-                                                            <p class="card-text"><small class="text-muted">файл<a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-name=@f.Name class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                        </div>
-                                                    </div>
-                                                </div>}
-
-                                                </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-
-                                                <div class="row">
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <div class="card-block p-0">
-                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp1.gif" alt="dashboard-user">
-                                                                <div class="ux-designer">
-                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
-                                                                    <h5>Формы правления</h5>
-                                                                    <span>Иванов Семен Петрович</span>
+                                                        <div class="col-md-6 col-xl-4">
+                                                            <div class="card mb-3">
+                                                                <div class="card-block">
+                                                                    <img class="img-thumbnail shadow-2" src=@Url.Content(f.Path) alt="Card image cap">
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">Добавлен @f.TimeAdded</h5>
+                                                                    <p class="card-text">@f.Name</p>
+                                                                    <p class="card-text"><small class="text-muted">файл<a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-name=@f.Name class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <div class="card-block p-0">
-                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp2.gif" alt="dashboard-user">
-                                                                <div class="ux-designer">
-                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
-                                                                    <h5>Понятие и классификация</h5>
-                                                                    <span>Иванов Семен Петрович</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <div class="card-block p-0">
-                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp4.gif" alt="dashboard-user">
-                                                                <div class="ux-designer">
-                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
-                                                                    <h5>Лабораторная работа 3</h5>
-                                                                    <span>Симонов Николай Дмитриевич</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <div class="card-block p-0">
-                                                                <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp3.gif" alt="dashboard-user">
-                                                                <div class="ux-designer">
-                                                                    <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
-                                                                    <h5>Введение в анализ данных</h5>
-                                                                    <span>Иванов Семен Петрович</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
+                                                        </div>}
 
                                                 </div>
                                             </div>
-
-                                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                                                <div class="row">
-
-
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card bg-light">
-                                                            <div class="card-header">Пути развития экономической науки</div>
-                                                            <div>
-                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ch3ZF1S7f1A?rel=0" allowfullscreen></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card bg-light">
-                                                            <div class="card-header">Почему вы должны учиться программированю</div>
-                                                            <div>
-                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BY1GNFrofrM?rel=0" allowfullscreen></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card bg-light">
-                                                            <div class="card-header">Что изучают экономисты?</div>
-                                                            <div>
-                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vgUwHs-vK-Q?rel=0" allowfullscreen></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card bg-light">
-                                                            <div class="card-header">Как работает рынок?</div>
-                                                            <div>
-                                                                <div class="img-round-brl embed-responsive embed-responsive-16by9">
-                                                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L9MpLpN4yZE?rel=0" allowfullscreen></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                <div class="row">
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономическая теория</h5>
-                                                                <p class="card-text">
-                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
-                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
-                                                                    ресурсов для максимального удовлетворения потребностей людей.
-                                                                    Состоит из множества школ и направлений ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">tproger.ru</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">CI/CD</h5>
-                                                                <p class="card-text">
-                                                                    Часто при релизе обновлений проектов возникают ситуации,
-                                                                    когда по различным причинам на боевой сервис попадает баг, не
-                                                                    выявленный прежде на тестовых серверах. И в связи с этим, у
-                                                                    клиентов появляется ряд неудобств вплоть до полного ...
-                                                                </p>
-                                                                <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономическая теория</h5>
-                                                                <p class="card-text">
-                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
-                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
-                                                                    ресурсов для максимального удовлетворения потребностей людей.
-                                                                    Состоит из множества школ и направлений ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Нюрнбергский процесс</h5>
-                                                                <p class="card-text">
-                                                                    Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
-                                                                    Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
-                                                                    судебных процессов, проходивших во Дворце юстиции города Нюрнберг
-                                                                    после окончания Второй мировой войныПерейти ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономическая теория</h5>
-                                                                <p class="card-text">
-                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
-                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
-                                                                    ресурсов для максимального удовлетворения потребностей людей.
-                                                                    Состоит из множества школ и направлений ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">tproger.ru</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">CI/CD</h5>
-                                                                <p class="card-text">
-                                                                    Часто при релизе обновлений проектов возникают ситуации,
-                                                                    когда по различным причинам на боевой сервис попадает баг, не
-                                                                    выявленный прежде на тестовых серверах. И в связи с этим, у
-                                                                    клиентов появляется ряд неудобств вплоть до полного ...
-                                                                </p>
-                                                                <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономическая теория</h5>
-                                                                <p class="card-text">
-                                                                    Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
-                                                                    общественная наука, которая изучает проблему выбора в условиях ограниченности
-                                                                    ресурсов для максимального удовлетворения потребностей людей.
-                                                                    Состоит из множества школ и направлений ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-xl-6">
-                                                        <div class="card">
-                                                            <h5 class="card-header">wikipedia.org</h5>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Нюрнбергский процесс</h5>
-                                                                <p class="card-text">
-                                                                    Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
-                                                                    Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
-                                                                    судебных процессов, проходивших во Дворце юстиции города Нюрнберг
-                                                                    после окончания Второй мировой войныПерейти ...
-                                                                </p>
-                                                                <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
+
+                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+
+                                            <div class="row">
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <div class="card-block p-0">
+                                                            <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp1.gif" alt="dashboard-user">
+                                                            <div class="ux-designer">
+                                                                <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                <h5>Формы правления</h5>
+                                                                <span>Иванов Семен Петрович</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <div class="card-block p-0">
+                                                            <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp2.gif" alt="dashboard-user">
+                                                            <div class="ux-designer">
+                                                                <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                <h5>Понятие и классификация</h5>
+                                                                <span>Иванов Семен Петрович</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <div class="card-block p-0">
+                                                            <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp4.gif" alt="dashboard-user">
+                                                            <div class="ux-designer">
+                                                                <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                <h5>Лабораторная работа 3</h5>
+                                                                <span>Симонов Николай Дмитриевич</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <div class="card-block p-0">
+                                                            <img class="img-fluid img-round-trl" style="width:100%;" src="~/assets/images/widget/rp3.gif" alt="dashboard-user">
+                                                            <div class="ux-designer">
+                                                                <button class="btn btn-primary"><i class="fas fa-play f-14 mr-0"></i></button>
+                                                                <h5>Введение в анализ данных</h5>
+                                                                <span>Иванов Семен Петрович</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                            <div class="row">
+
+
+
+                                                <div class="col-xl-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-header">Пути развития экономической науки</div>
+                                                        <div>
+                                                            <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ch3ZF1S7f1A?rel=0" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-header">Почему вы должны учиться программированю</div>
+                                                        <div>
+                                                            <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/BY1GNFrofrM?rel=0" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-header">Что изучают экономисты?</div>
+                                                        <div>
+                                                            <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vgUwHs-vK-Q?rel=0" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card bg-light">
+                                                        <div class="card-header">Как работает рынок?</div>
+                                                        <div>
+                                                            <div class="img-round-brl embed-responsive embed-responsive-16by9">
+                                                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L9MpLpN4yZE?rel=0" allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Экономическая теория</h5>
+                                                            <p class="card-text">
+                                                                Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                ресурсов для максимального удовлетворения потребностей людей.
+                                                                Состоит из множества школ и направлений ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">tproger.ru</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">CI/CD</h5>
+                                                            <p class="card-text">
+                                                                Часто при релизе обновлений проектов возникают ситуации,
+                                                                когда по различным причинам на боевой сервис попадает баг, не
+                                                                выявленный прежде на тестовых серверах. И в связи с этим, у
+                                                                клиентов появляется ряд неудобств вплоть до полного ...
+                                                            </p>
+                                                            <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Экономическая теория</h5>
+                                                            <p class="card-text">
+                                                                Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                ресурсов для максимального удовлетворения потребностей людей.
+                                                                Состоит из множества школ и направлений ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Нюрнбергский процесс</h5>
+                                                            <p class="card-text">
+                                                                Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
+                                                                Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
+                                                                судебных процессов, проходивших во Дворце юстиции города Нюрнберг
+                                                                после окончания Второй мировой войныПерейти ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Экономическая теория</h5>
+                                                            <p class="card-text">
+                                                                Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                ресурсов для максимального удовлетворения потребностей людей.
+                                                                Состоит из множества школ и направлений ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">tproger.ru</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">CI/CD</h5>
+                                                            <p class="card-text">
+                                                                Часто при релизе обновлений проектов возникают ситуации,
+                                                                когда по различным причинам на боевой сервис попадает баг, не
+                                                                выявленный прежде на тестовых серверах. И в связи с этим, у
+                                                                клиентов появляется ряд неудобств вплоть до полного ...
+                                                            </p>
+                                                            <a target="_blank" href="https://tproger.ru/articles/ci-cd-or-quality-code-pipeline/" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Экономическая теория</h5>
+                                                            <p class="card-text">
+                                                                Экономи́ческая тео́рия, или теорети́ческая эконо́мика, —
+                                                                общественная наука, которая изучает проблему выбора в условиях ограниченности
+                                                                ресурсов для максимального удовлетворения потребностей людей.
+                                                                Состоит из множества школ и направлений ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Экономическая_теория" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6">
+                                                    <div class="card">
+                                                        <h5 class="card-header">wikipedia.org</h5>
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Нюрнбергский процесс</h5>
+                                                            <p class="card-text">
+                                                                Нюрнбе́ргский проце́сс (англ. Nuremberg trial, нем. Nürnberger
+                                                                Prozess, фр. Procès de Nuremberg) — первый и ключевой из серии
+                                                                судебных процессов, проходивших во Дворце юстиции города Нюрнберг
+                                                                после окончания Второй мировой войныПерейти ...
+                                                            </p>
+                                                            <a target="_blank" href="https://ru.wikipedia.org/wiki/Нюрнбергский_процесс" class="btn btn-primary">Читать статью</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
-
                             </div>
-                            <!-- [ tabs ] end -->
+
                         </div>
-                        <!-- [ Main Content ] end -->
+                        <!-- [ tabs ] end -->
                     </div>
+                    <!-- [ Main Content ] end -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+                    </div>
 <!-- [ Main Content ] end -->
+<!-- Вертикально выравненное прокручиваемое модальное окно -->
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Загрузка файла</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Текстовое поле -->
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Введите название</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <h4>Выберите курс</h4>
+                        <!-- Селектер курса -->
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>Выбрать курс...</option>
+                            <option value="1">Первый курс</option>
+                            <option value="2">Второй курс</option>
+                            <option value="3">Третий курс</option>
+                            <option value="4">Четвертый курс</option>
+                        </select>
+                        <h5>Выберите группу</h5>
+                        <!-- Выбор группы\групп -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="option3">
+                            <label class="form-check-label" for="inlineCheckbox3">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="option4">
+                            <label class="form-check-label" for="inlineCheckbox4">4</label>
+                        </div>
+                        <!-- Выбрать файл -->
+                        <div class="form-group">
+                            <label>Выберите файл</label>
+                            <input type="file" class="form-control-file" name="uploadedFile">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="submit" class="btn btn-primary">Загрузить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -404,6 +469,9 @@
     <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
     <!-- multi-select css -->
     <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstr.." integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
 }
 
 @section Scripts{
@@ -431,11 +499,16 @@
     <script src="~/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
     @* <script src="~/assets/js/pages/ac-alert.js"></script> *@
     <script>
-        $(document).ready(function() {
-            $('.sweet-success').on('click', function() {
+        $(document).ready(function () {
+            $('.sweet-success').on('click', function () {
                 swal("Выполнено!", "Проверьте папку загрузок!", "success");
             });
         });
     </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstra.." integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 }
 

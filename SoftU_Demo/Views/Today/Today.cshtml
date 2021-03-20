@@ -23,7 +23,7 @@
                         <!-- [ Main Content ] start -->
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="app-active owl-carousel animated fadeInUp fast">
+                                <div class="app-active owl-carousel animated fadeInUp fast" style="z-index: inherit">
                                     <div class="card rides-bar">
                                         <div class="card-block">
                                             <div class="row d-flex align-items-center">
@@ -268,16 +268,16 @@
             if(client_list.length)
             {
                 client_list.owlCarousel(
-                {
+                    {
                     slidesToShow: 4,
                     slidesToScroll: 1,
                     loop: true,
-                    autoplay:true,
-                    autoplayTimeout:5000,
+                    autoplay: true,
+                    autoplayTimeout: 5000,
                     smartSpeed: 5200,
                     dots: false,
                     margin: 20,
-                    nav  : false,
+                    nav: false,
                     autoplayHoverPause: false,
                     responsive :
                     {
