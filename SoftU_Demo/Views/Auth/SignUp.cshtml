@@ -50,43 +50,59 @@
                             <i class="feather icon-user-plus auth-icon"></i>
                         </div>
                         <h3 class="mb-4">Регистрация</h3>
-                        @*<div class="input-group mb-3">
-            <input type="number" class="form-control" placeholder="Номер студенческого билета">
-        </div>*@
                         <div class="input-group mb-3">
-                            <input type="email" name="Email" class="form-control" asp-for="Email" placeholder="Email">
+                            <input type="email" name="Email" class="form-control" asp-for="Email" placeholder="Email" required>
                         </div>
                         <div class="input-group mb-4">
-                            <input type="password" name="Password" class="form-control" asp-for="Password" placeholder="Пароль">
+                            <input type="password" name="Password" class="form-control" asp-for="Password" placeholder="Пароль" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" name="LastName" class="form-control" asp-for="LastName" placeholder="Фамилия">
+                            <input type="text" name="LastName" class="form-control" asp-for="LastName" placeholder="Фамилия" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" name="FirstName" class="form-control" asp-for="FirstName" placeholder="Имя">
+                            <input type="text" name="FirstName" class="form-control" asp-for="FirstName" placeholder="Имя" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" name="MiddleName" class="form-control" asp-for="MiddleName" placeholder="Отчество">
+                            <input type="text" name="MiddleName" class="form-control" asp-for="MiddleName" placeholder="Отчество" required>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" value="Группа1" asp-for="Group" type="radio" name="Group">
-                            <label class="form-check-label" asp-for="Group">
-                                Группа1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" value="Группа2" asp-for="Group" type="radio" name="Group">
-                            <label class="form-check-label" asp-for="Group">
-                                Группа2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" value="Группа3" asp-for="Group" type="radio" name="Group">
-                            <label class="form-check-label" asp-for="Group">
-                                Группа3
-                            </label>
-                        </div>
-                        <div class="form-group text-left">
+                        @*<div class="form-check">
+            <input class="form-check-input" value="Группа1" asp-for="Group" type="radio" name="Group">
+            <label class="form-check-label" asp-for="Group">
+                Группа1
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="Группа2" asp-for="Group" type="radio" name="Group">
+            <label class="form-check-label" asp-for="Group">
+                Группа2
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="Группа3" asp-for="Group" type="radio" name="Group">
+            <label class="form-check-label" asp-for="Group">
+                Группа3
+            </label>
+        </div>*@
+                    <select class="custom-select mb-3" required asp-for="Group">
+                        <option selected value="">Выберите группу</option>
+                        <option value="101">101</option>
+                        <option value="102">102</option>
+                        <option value="103">103</option>
+                        <option value="104">104</option>
+                        <option value="201">201</option>
+                        <option value="202">202</option>
+                        <option value="203">203</option>
+                        <option value="204">204</option>
+                        <option value="301">301</option>
+                        <option value="302">302</option>
+                        <option value="303">303</option>
+                        <option value="304">304</option>
+                        <option value="401">401</option>
+                        <option value="402">402</option>
+                        <option value="403">403</option>
+                        <option value="404">404</option>
+                    </select>
+                        @*<div class="form-group text-left">
                             <div class="checkbox checkbox-fill d-inline">
                                 <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2">
                                 <label for="checkbox-fill-2" class="cr">
@@ -94,7 +110,7 @@
                                     каждую неделю
                                 </label>
                             </div>
-                        </div>
+                        </div>*@
                         <button type="submit" class="btn btn-primary shadow-2 mb-4">Зарегистрироваться</button>
                         <p class="mb-0 text-muted">Уже есть аккаунт? <a href="/Auth/@Pages.SignIn.Value"> Войти</a></p>
                     </div>

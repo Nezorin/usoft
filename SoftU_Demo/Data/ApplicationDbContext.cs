@@ -13,7 +13,7 @@ namespace WebApp.Data
         public virtual DbSet<ScheduleItem> ScheduleItems { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,12 +23,12 @@ namespace WebApp.Data
             .Build();
             optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
         }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
-        //    modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Teacher", NormalizedName = "Teacher".ToUpper() });
-        //    modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User", NormalizedName = "User".ToUpper() });
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
+            //modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Teacher", NormalizedName = "Teacher".ToUpper() });
+            //modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "User", NormalizedName = "User".ToUpper() });
+        }
     }
 }
