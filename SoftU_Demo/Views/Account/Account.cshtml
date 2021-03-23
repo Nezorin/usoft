@@ -5,23 +5,19 @@
     var user = await _userManager.FindByNameAsync(User.Identity.Name ?? "");
 }
 @{ ViewData["Title"] = "Профиль"; }
-<div class="pcoded-main-container">
-    <div class="pcoded-wrapper">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="col-md-6">
-                    <div class="profile-item">
-                        <div class="span2">
-                            <img src="~/assets/images/user/avatar-1.jpg" class="img-circle">
-                        </div>
-                        <div class="span4">
-                            <h4>Фамилия: @user.LastName</h4>
-                            <h4>Имя: @user.FirstName</h4>
-                            <h4>Отчество: @user.MiddleName</h4>
-                            <h4>Email: @user.Email</h4>
-                        </div>
-                        <a asp-action="ChangePassword" asp-controller="Account" type="button" class="btn btn-primary">Сменить пароль</a>
-                    </div>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6">
+            <div class="profile-box">
+                <div class="profile-avatar text-center mb-20">
+                    <img src="~/assets/images/user/avatar-1.jpg" alt="profile-avatar">
+                    <p class="fio">@user.LastName @user.FirstName @user.MiddleName</p>
+                </div>
+                <div class="profile-description text-center mb-20">
+                    <p class="email">Email:  @user.Email</p>
+                </div>
+                <div class="btn-box text-center">
+                    <button class="profile-btn">Сменить пароль</button>
                 </div>
             </div>
         </div>
@@ -30,5 +26,6 @@
 
 @section Styles{
     <!-- notification css -->
-    <link rel="stylesheet" href="~/assets/css/ProfileUI/style.css">
+    <link rel="stylesheet" type="text/css" href="/profile/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/profile/css/profile.css">
 }

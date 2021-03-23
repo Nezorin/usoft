@@ -47,9 +47,9 @@
                                             @if (User.IsInRole("admin"))
                                             {
                                                 <li>
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                                                        Загрузить файл
-                                                    </button>
+                                                    <div class="modal-btn-box">
+                                                        <button class="modal-btn" data-toggle="modal" data-target="#exampleModal">Загрузить файл</button>
+                                                    </div>
                                                 </li>
                                             }
 
@@ -395,60 +395,79 @@
 </div>
                     </div>
 <!-- [ Main Content ] end -->
-<!-- Вертикально выравненное прокручиваемое модальное окно -->
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Загрузка файла</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Текстовое поле -->
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Введите название</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<!-- Модальное окно  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Загрузка файла</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="input-box mb-20">
+                                <input class="form-control" type="text" placeholder="Введите название*" required>
+                            </div>
                         </div>
-                        <h4>Выберите курс</h4>
-                        <!-- Селектер курса -->
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <option selected>Выбрать курс...</option>
-                            <option value="1">Первый курс</option>
-                            <option value="2">Второй курс</option>
-                            <option value="3">Третий курс</option>
-                            <option value="4">Четвертый курс</option>
-                        </select>
-                        <h5>Выберите группу</h5>
-                        <!-- Выбор группы\групп -->
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">1</label>
+                        <div class="col-lg-6 text-center mb-20">
+                            <div class="radio-box">
+                                <p class="radio-p">Выбирите курс</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
+                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                    <label class="form-check-label" for="inlineRadio3">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" required>
+                                    <label class="form-check-label" for="inlineRadio4">4</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">2</label>
+                        <div class="col-lg-6 text-center mb-20">
+                            <div class="radio-box">
+                                <p class="radio-p">Выбирите группу</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio11" value="option11" required>
+                                    <label class="form-check-label" for="inlineRadio11">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio22" value="option22" required>
+                                    <label class="form-check-label" for="inlineRadio22">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio33" value="option33" required>
+                                    <label class="form-check-label" for="inlineRadio33">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio44" value="option44" required>
+                                    <label class="form-check-label" for="inlineRadio44">4</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="option3">
-                            <label class="form-check-label" for="inlineCheckbox3">3</label>
+                        <div class="col-lg-12">
+                            <div class="input-box mb-20">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile1" required>
+                                    <label class="custom-file-label" for="validatedCustomFile1" data-browse="Загрузить">Выбирите файл*</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="option4">
-                            <label class="form-check-label" for="inlineCheckbox4">4</label>
+                        <div class="text-center col-lg-12">
+                            <div class="btn-box">
+                                <button class="modal-btn" type="button">Сохранить</button>
+                            </div>
                         </div>
-                        <!-- Выбрать файл -->
-                        <div class="form-group">
-                            <label>Выберите файл</label>
-                            <input type="file" class="form-control-file" name="uploadedFile">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                        <button type="submit" class="btn btn-primary">Загрузить</button>
                     </div>
                 </form>
             </div>
@@ -471,13 +490,19 @@
     <link rel="stylesheet" href="~/assets/plugins/multi-select/css/multi-select.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstr.." integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Modal styles-->
 
+    <link rel="stylesheet" type="text/css" href="/modal/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/modal/css/modal.css">
 }
 
 @section Scripts{
 
     <!-- select2 Js -->
     <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+    <!-- Modal js -->
+    <script src="/modal/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/modal/jquery/jquery-3.5.1.min.js"></script>
 
     <!-- multi-select Js -->
     <script src="~/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
