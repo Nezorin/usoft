@@ -44,7 +44,7 @@
                                             <li><a class="nav-link text-left" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Презентации</a></li>
                                             <li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Видео</a></li>
                                             <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Статьи</a></li>
-                                            @if (User.IsInRole("admin"))
+                                            @if (User.IsInRole("Teacher"))
                                             {
                                                 <li>
                                                     <div class="modal-btn-box">
@@ -76,48 +76,6 @@
 
                                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                            <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/1.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                            <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/2.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-xl-4">
-                                                        @* <h5>Капиталл</h5>
-                                                            <hr> *@
-                                                        <div class="card mb-3">
-                                                            <div class="card-block">
-                                                                <img class="img-thumbnail shadow-2" src="~/assets/images/demo/bookcovers/3.png" alt="Card image cap">
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <h5 class="card-title">Экономика</h5>
-                                                                <p class="card-text">Учебник для вузов</p>
-                                                                <p class="card-text"><small class="text-muted">Кураков, Яковлев<a href="#" class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     @foreach (var f in Model)
                                                     {
                                                         <div class="col-md-6 col-xl-4">
@@ -126,12 +84,13 @@
                                                                     <img class="img-thumbnail shadow-2" src=@Url.Content(f.Path) alt="Card image cap">
                                                                 </div>
                                                                 <div class="card-body">
-                                                                    <h5 class="card-title">Добавлен @f.TimeAdded</h5>
-                                                                    <p class="card-text">@f.Name</p>
-                                                                    <p class="card-text"><small class="text-muted">файл<a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-name=@f.Name class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
+                                                                    <h5 class="card-title">@f.Name</h5>
+                                                                    <p class="card-text">Добавлен @f.TimeAdded</p>
+                                                                    <p class="card-text"><small class="text-muted"><a asp-controller="Materials" asp-action="GetFile" asp-route-path=@f.Path asp-route-fileName=@f.FileName class="float-right sweet-success"><i class="feather icon-download"></i> Скачать</a></small>
                                                                 </div>
                                                             </div>
-                                                        </div>}
+                                                        </div>
+                                                        }
 
                                                 </div>
                                             </div>
@@ -393,7 +352,7 @@
         </div>
     </div>
 </div>
-                    </div>
+
 <!-- [ Main Content ] end -->
 <!-- Модальное окно  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -406,30 +365,30 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate asp-action="AddFile" asp-controller="Materials" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-box mb-20">
-                                <input class="form-control" type="text" placeholder="Введите название*" required>
+                                <input class="form-control" type="text" placeholder="Введите название*" required name="name">
                             </div>
                         </div>
                         <div class="col-lg-6 text-center mb-20">
                             <div class="radio-box">
                                 <p class="radio-p">Выбирите курс</p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio1" required value="1" name="course">
                                     <label class="form-check-label" for="inlineRadio1">1</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio2" required value="2" name="course">
                                     <label class="form-check-label" for="inlineRadio2">2</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio3" required value="3" name="course">
                                     <label class="form-check-label" for="inlineRadio3">3</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio4" required value="4" name="course">
                                     <label class="form-check-label" for="inlineRadio4">4</label>
                                 </div>
                             </div>
@@ -438,19 +397,19 @@
                             <div class="radio-box">
                                 <p class="radio-p">Выбирите группу</p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio11" value="option11" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio11" required value="1" name="group">
                                     <label class="form-check-label" for="inlineRadio11">1</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio22" value="option22" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio22" required value="2" name="group">
                                     <label class="form-check-label" for="inlineRadio22">2</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio33" value="option33" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio33" required value="3" name="group">
                                     <label class="form-check-label" for="inlineRadio33">3</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions11" id="inlineRadio44" value="option44" required>
+                                    <input class="form-check-input" type="radio" id="inlineRadio44" required value="4" name="group">
                                     <label class="form-check-label" for="inlineRadio44">4</label>
                                 </div>
                             </div>
@@ -458,14 +417,14 @@
                         <div class="col-lg-12">
                             <div class="input-box mb-20">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="validatedCustomFile1" required>
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile1" required name="uploadedFile">
                                     <label class="custom-file-label" for="validatedCustomFile1" data-browse="Загрузить">Выбирите файл*</label>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center col-lg-12">
                             <div class="btn-box">
-                                <button class="modal-btn" type="button">Сохранить</button>
+                                <button class="modal-btn" type="submit">Сохранить</button>
                             </div>
                         </div>
                     </div>

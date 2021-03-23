@@ -69,6 +69,15 @@ namespace WebApp.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public IActionResult SignUpForTeachers()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Today", "Today");
+            }
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
@@ -82,13 +91,14 @@ namespace WebApp.Controllers
                     MiddleName = model.MiddleName,
                     LastName = model.LastName,
                     Group = model.Group,
+                    Course = model.Course,
                     EmailConfirmed = true
                 };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "User");
+                    await _userManager.AddToRoleAsync(user, model.Role);
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("SignIn", "Auth");

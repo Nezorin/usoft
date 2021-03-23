@@ -27,7 +27,7 @@ namespace WebApp.Controllers
         public async Task<IActionResult> GetEvents()
         {
             var user = await _userManager.GetUserAsync(User);
-            var events = _dbContext.ScheduleItems.Where(i => i.Group == user.Group).Select(e => new
+            var events = _dbContext.ScheduleItems.Where(i => i.Group == user.Group && i.Course == user.Course).Select(e => new
             {
                 id = e.Id,
                 title = e.Discipline,

@@ -10,17 +10,17 @@ namespace WebApp.Services
         {
             string adminEmail = "admin@gmail.com";
             string password = "adminPassword123";
-            if (await roleManager.FindByNameAsync("admin") == null)
+            if (await roleManager.FindByNameAsync("Admin") == null)
             {
-                await roleManager.CreateAsync(new IdentityRole("admin"));
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
-            if (await roleManager.FindByNameAsync("teacher") == null)
+            if (await roleManager.FindByNameAsync("Teacher") == null)
             {
-                await roleManager.CreateAsync(new IdentityRole("teacher"));
+                await roleManager.CreateAsync(new IdentityRole("Teacher"));
             }
-            if (await roleManager.FindByNameAsync("user") == null)
+            if (await roleManager.FindByNameAsync("User") == null)
             {
-                await roleManager.CreateAsync(new IdentityRole("user"));
+                await roleManager.CreateAsync(new IdentityRole("User"));
             }
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
@@ -32,12 +32,13 @@ namespace WebApp.Services
                     MiddleName = "Админович",
                     LastName = "Админинов",
                     Group = "1",
+                    Course = "1",
                     EmailConfirmed = true
                 };
                 IdentityResult result = await userManager.CreateAsync(admin, password);
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRolesAsync(admin, new string[] { "user", "teacher", "admin" });
+                    await userManager.AddToRolesAsync(admin, new string[] { "User", "Teacher", "Admin" });
                 }
                 else
                 {

@@ -8,5 +8,6 @@ namespace WebApp.Models
         public string Discipline { get; set; }
         public DateTime End { get; set; }
         public string Group { get; set; }
+        public string Course { get; set; }
     }
 }
