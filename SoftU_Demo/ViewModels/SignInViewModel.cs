@@ -4,11 +4,11 @@ namespace WebApp.ViewModels
 {
     public class SignInViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Введите Логин")]
         [Display(Name = "Email")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Введите Пароль")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }

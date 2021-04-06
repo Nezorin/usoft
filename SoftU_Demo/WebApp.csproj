@@ -39,6 +39,7 @@
       <Folder Include="wwwroot\css\Новая папка1\" />
       <Folder Include="wwwroot\css\Новая папка\" />
       <Folder Include="wwwroot\Files\" />
+      <Folder Include="wwwroot\docs\" />
     </ItemGroup>
 
 </Project>

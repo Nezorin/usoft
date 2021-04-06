@@ -55,7 +55,7 @@ namespace WebApp.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    ModelState.AddModelError("WrongPasswordOrEmail", "Неправильный логин и (или) пароль");
                 }
             }
             return View(model);
