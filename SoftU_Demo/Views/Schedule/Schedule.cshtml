@@ -160,6 +160,7 @@
                 editable: false,
                 droppable: false,
                 events: '@Url.Action("GetEvents","Schedule")',
+                timeFormat: 'H:mm', // uppercase H for 24-hour clock
                 drop: function ()
                 {
                     if ($('#drop-remove').is(':checked'))

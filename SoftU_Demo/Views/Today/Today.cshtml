@@ -341,73 +341,10 @@
                 defaultDate: $('#calendar').fullCalendar('today'),
                 editable: false,
                 droppable: false,
-                events:
-                [
-                    {
-                        title: 'Теория государства и права',
-                        start: '2020-12-11T10:30:00',
-                        end: '2020-12-11T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Экономическая теория',
-                        start: '2020-12-9T10:30:00',
-                        end: '2020-12-9T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'История политических и правовых учений',
-                        start: '2020-12-8T10:30:00',
-                        end: '2020-12-8T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Социология',
-                        start: '2020-12-13T10:30:00',
-                        end: '2020-12-13T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Психология',
-                        start: '2020-12-14T10:30:00',
-                        end: '2020-12-14T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Теория государства и права',
-                        start: '2020-12-15T10:30:00',
-                        end: '2020-12-15T12:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Экономическая теория',
-                        start: '2020-12-12T12:30:00',
-                        end: '2020-12-12T14:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                    {
-                        title: 'Информатика',
-                        start: '2020-12-12T15:30:00',
-                        end: '2020-12-12T17:30:00',
-                        borderColor: '#1de9b6',
-                        backgroundColor: '#1de9b6',
-                        textColor: '#fff'
-                    },
-                ],
+
+                events: '@Url.Action("GetEvents","Schedule")',
+                timeFormat: 'H:mm',// uppercase H for 24-hour clock
+
                 drop: function ()
                 {
                     if ($('#drop-remove').is(':checked'))

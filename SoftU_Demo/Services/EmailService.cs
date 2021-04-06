@@ -21,7 +21,7 @@ namespace WebApp.Services
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp.gmail.com", 465, true);
-                await client.AuthenticateAsync("UsoftTestMail@gmail.com", "");//EMAIL, PASSWORD
+                await client.AuthenticateAsync("UsoftTestMail@gmail.com", "UsoftTestMailPass");//EMAIL, PASSWORD
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
